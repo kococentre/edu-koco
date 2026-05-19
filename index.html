@@ -1,7 +1,121 @@
-<h1>Edu Koco</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edu Koco</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: linear-gradient(180deg, #e9fff8 0%, #fffdf4 100%);
+      color: #17424a;
+    }
 
-<p>English × Reading × Confidence</p>
+    .hero {
+      text-align: center;
+      padding: 56px 20px 36px;
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      color: white;
+      border-bottom-left-radius: 36px;
+      border-bottom-right-radius: 36px;
+    }
 
-<ul>
-  <li><a href="yumetan1/">ユメタン１</a></li>
-</ul>
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.22);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 8px 0;
+      letter-spacing: 0.03em;
+    }
+
+    .tagline {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 32px auto;
+      padding: 0 18px;
+    }
+
+    .message {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15,118,110,0.12);
+      margin-bottom: 22px;
+      line-height: 1.8;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      background: white;
+      border: 2px solid #bff3e7;
+      border-radius: 24px;
+      padding: 24px;
+      margin: 16px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: 0.2s;
+      color: #17424a;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #0f766e;
+    }
+
+    .card-text {
+      font-size: 15px;
+      color: #52656b;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #668;
+      padding: 30px 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="badge">🌱 Learning Hub</div>
+    <h1>Edu Koco</h1>
+    <div class="tagline">English × Reading × Confidence</div>
+  </section>
+
+  <main class="container">
+    <div class="message">
+      <strong>ようこそ、Edu Kocoへ。</strong><br>
+      英語を読む・聞く・声に出すことで、少しずつ自信を育てていく学びの場所です。
+    </div>
+
+    <a class="card" href="yumetan1/">
+      <div class="card-title">📘 ユメタン１</div>
+      <div class="card-text">10単語ずつ、ストーリーで音読トレーニング。</div>
+    </a>
+  </main>
+
+  <div class="footer">
+    KID'S ENGLISH / Kococentre
+  </div>
+</body>
+</html>
