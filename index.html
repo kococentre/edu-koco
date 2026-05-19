@@ -1,121 +1,405 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edu Koco</title>
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
-      background: linear-gradient(180deg, #e9fff8 0%, #fffdf4 100%);
-      color: #17424a;
+      font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+      background: #fff7df;
+      color: #5a3b1e;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #fff2bd 0%, #fff9e8 45%, #fff3c9 100%);
+      border: 12px solid #ffc33d;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(149, 91, 20, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      background: #fffdf4;
+      color: #7a4a1e;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .hero {
       text-align: center;
-      padding: 56px 20px 36px;
-      background: linear-gradient(135deg, #0f766e, #14b8a6);
-      color: white;
-      border-bottom-left-radius: 36px;
-      border-bottom-right-radius: 36px;
+      padding: 28px 20px 38px;
+      position: relative;
     }
 
-    .badge {
+    .ribbon {
       display: inline-block;
-      background: rgba(255,255,255,0.22);
-      padding: 8px 16px;
+      background: #f47b20;
+      color: white;
+      padding: 8px 28px;
       border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 14px;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 42px;
-      margin: 8px 0;
-      letter-spacing: 0.03em;
+      font-size: clamp(56px, 10vw, 112px);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: 0.02em;
     }
+
+    .edu { color: #6cab36; }
+    .koco { color: #f58220; }
 
     .tagline {
-      font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .container {
-      max-width: 760px;
-      margin: 32px auto;
-      padding: 0 18px;
-    }
-
-    .message {
-      background: white;
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(15,118,110,0.12);
-      margin-bottom: 22px;
-      line-height: 1.8;
-    }
-
-    .card {
-      display: block;
-      text-decoration: none;
-      background: white;
-      border: 2px solid #bff3e7;
-      border-radius: 24px;
-      padding: 24px;
-      margin: 16px 0;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      transition: 0.2s;
-      color: #17424a;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-    }
-
-    .card-title {
-      font-size: 24px;
+      margin-top: 14px;
+      font-size: clamp(18px, 3vw, 28px);
       font-weight: 800;
-      margin-bottom: 8px;
-      color: #0f766e;
     }
 
-    .card-text {
-      font-size: 15px;
-      color: #52656b;
+    .intro {
+      margin: 16px auto 0;
+      font-size: 18px;
+      line-height: 1.9;
+      max-width: 620px;
+      font-weight: 600;
     }
 
-    .footer {
+    .mascots {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .owl {
+      background: #fff8df;
+      border: 3px solid #ffd98a;
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: 0 8px 18px rgba(128, 82, 25, 0.12);
+    }
+
+    .owl-face {
+      font-size: 86px;
+      line-height: 1;
+    }
+
+    .owl-name {
+      font-size: 24px;
+      font-weight: 900;
+      margin-top: 8px;
+    }
+
+    .pink { color: #f1789c; }
+    .green { color: #6cab36; }
+
+    .book {
+      font-size: 96px;
+      filter: drop-shadow(0 8px 8px rgba(0,0,0,0.12));
+    }
+
+    .welcome-box {
+      margin: 28px auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.82);
+      border: 3px dashed #ffc76c;
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(128, 82, 25, 0.08);
+    }
+
+    .welcome-box .icon {
+      font-size: 54px;
+    }
+
+    .welcome-box h2 {
+      margin: 0 0 8px;
+      color: #e86d19;
+      font-size: 30px;
+    }
+
+    .welcome-box p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    .section-title {
       text-align: center;
-      font-size: 13px;
-      color: #668;
-      padding: 30px 10px;
+      font-size: 34px;
+      font-weight: 900;
+      color: #7a4a1e;
+      margin: 34px 0 22px;
+    }
+
+    .content-card {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      background: #fffdf7;
+      border: 3px solid #ffe0a3;
+      border-radius: 28px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 26px;
+      align-items: center;
+      box-shadow: 0 10px 24px rgba(128, 82, 25, 0.13);
+    }
+
+    .mini-illust {
+      background: #fff0c2;
+      border-radius: 24px;
+      padding: 26px;
+      text-align: center;
+      font-size: 90px;
+    }
+
+    .label {
+      display: inline-block;
+      background: #ff8aa8;
+      color: white;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .content-card h3 {
+      margin: 0 0 10px;
+      font-size: 42px;
+      color: #5fa832;
+    }
+
+    .content-card p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ff9f2e, #f06d12);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-size: 20px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 8px 14px rgba(240, 109, 18, 0.25);
+    }
+
+    .features {
+      max-width: 900px;
+      margin: 0 auto 36px;
+      background: rgba(255,255,255,0.72);
+      border: 2px solid #ffe3a8;
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .feature {
+      padding: 22px 12px;
+      text-align: center;
+      border-right: 2px dashed #f7bf68;
+    }
+
+    .feature:last-child { border-right: none; }
+
+    .feature .emoji {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 16px 36px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        border-width: 6px;
+        border-radius: 18px;
+      }
+
+      .mascots {
+        grid-template-columns: 1fr;
+      }
+
+      .book {
+        order: -1;
+        font-size: 74px;
+      }
+
+      .content-card {
+        grid-template-columns: 1fr;
+        margin: 0 16px 28px;
+      }
+
+      .welcome-box {
+        margin: 22px 16px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+        margin: 0 16px 30px;
+      }
+
+      .feature:nth-child(2) {
+        border-right: none;
+      }
+
+      .feature {
+        border-bottom: 2px dashed #f7bf68;
+      }
+
+      .feature:nth-child(3),
+      .feature:nth-child(4) {
+        border-bottom: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <section class="hero">
-    <div class="badge">🌱 Learning Hub</div>
-    <h1>Edu Koco</h1>
-    <div class="tagline">English × Reading × Confidence</div>
-  </section>
+  <div class="page">
 
-  <main class="container">
-    <div class="message">
-      <strong>ようこそ、Edu Kocoへ。</strong><br>
-      英語を読む・聞く・声に出すことで、少しずつ自信を育てていく学びの場所です。
-    </div>
+    <nav class="nav">
+      <a href="#">🏠 ホーム</a>
+      <a href="#contents">📖 学習コンテンツ</a>
+      <a href="#about">♡ このサイトについて</a>
+    </nav>
 
-    <a class="card" href="yumetan1/">
-      <div class="card-title">📘 ユメタン１</div>
-      <div class="card-text">10単語ずつ、ストーリーで音読トレーニング。</div>
-    </a>
-  </main>
+    <section class="hero">
+      <div class="ribbon">Welcome to</div>
 
-  <div class="footer">
-    KID'S ENGLISH / Kococentre
+      <h1>
+        <span class="edu">Edu</span>
+        <span class="koco">Koco</span>
+      </h1>
+
+      <div class="tagline">English × Reading × Confidence</div>
+
+      <p class="intro">
+        英語を読む・聞く・声に出すことで、<br>
+        少しずつ自信を育てていく学びの場所です。
+      </p>
+
+      <div class="mascots">
+        <div class="owl">
+          <div class="owl-face pink">🦉</div>
+          <div class="owl-name pink">Koco ちゃん</div>
+          <div>学びをサポートするよ♪</div>
+        </div>
+
+        <div class="book">📖🌱</div>
+
+        <div class="owl">
+          <div class="owl-face green">🦉</div>
+          <div class="owl-name green">Centre くん</div>
+          <div>いっしょにがんばろう！</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome-box" id="about">
+      <div class="icon">🌱</div>
+      <div>
+        <h2>ようこそ、Edu Kocoへ。</h2>
+        <p>
+          ここは、自分のペースで学び、<br>
+          未来の自分を好きになっていく場所です。
+        </p>
+      </div>
+      <div class="icon">🌼</div>
+    </section>
+
+    <section id="contents">
+      <div class="section-title">🌿 学習コンテンツ 🌿</div>
+
+      <div class="content-card">
+        <div class="mini-illust">🦉📘🦉</div>
+
+        <div>
+          <span class="label">おすすめ！</span>
+          <h3>ユメタン１</h3>
+          <p>
+            10単語ずつ、ストーリーで<br>
+            音読トレーニング。
+          </p>
+          <a class="button" href="yumetan1/">📖 学習をはじめる ＞</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <div class="emoji">🌱</div>
+        <strong>やさしく学べる</strong>
+        <span>自分のペースでOK！</span>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🧡</div>
+        <strong>自信がつく</strong>
+        <span>「できた！」を大切に</span>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🌳</div>
+        <strong>身につく力</strong>
+        <span>読む・聞く・話す・考える</span>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">⭐</div>
+        <strong>毎日コツコツ</strong>
+        <span>小さな積み重ねが力に</span>
+      </div>
+    </section>
+
+    <footer>
+      KID’S ENGLISH / Kococentre<br>
+      © Edu Koco
+    </footer>
+
   </div>
 </body>
 </html>
