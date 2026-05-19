@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 7</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-light: #5eead4;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --muted: #64748b;
+    --border: #ccfbf1;
+    --highlight-bg: #fef9c3;
+    --highlight-border: #fde047;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0d9488 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(15,118,110,0.3);
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .subtitle { font-size: 13px; opacity: 0.85; margin-bottom: 8px; }
+  .level-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #78350f;
+    border-radius: 12px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .progress-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .progress-bar { background: #e2e8f0; border-radius: 99px; height: 10px; overflow: hidden; }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--primary-light), var(--primary));
+    height: 100%;
+    border-radius: 99px;
+    width: 7%;
+    transition: width 0.6s ease;
+  }
+
+  .word-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip {
+    background: var(--highlight-bg);
+    border: 1.5px solid var(--highlight-border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #78350f;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .story-text { font-size: 15.5px; line-height: 1.9; color: #1e3a37; }
+  .story-text mark {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--accent);
+    border-radius: 2px;
+    padding: 0 2px;
+    color: #78350f;
+    font-weight: 600;
+  }
+  .story-title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 12px; text-align: center; }
+
+  .translation {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+
+  .clil-box {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #14532d;
+  }
+  .clil-title { font-weight: 700; color: var(--green); margin-bottom: 6px; font-size: 14px; }
+
+  .audio-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .play-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .play-btn:hover { background: #0d9488; }
+  .stop-btn {
+    background: white;
+    color: var(--red);
+    border: 1.5px solid var(--red);
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .speed-btns { display: flex; gap: 5px; margin-left: auto; }
+  .speed-btn {
+    background: white;
+    color: var(--primary);
+    border: 1.5px solid var(--primary-light);
+    border-radius: 16px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .speed-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+  .word-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    background: #f8fffe;
+  }
+  .word-card:last-child { margin-bottom: 0; }
+  .wc-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+  .wc-num { font-size: 11px; color: var(--muted); font-weight: 600; min-width: 28px; }
+  .wc-word { font-size: 17px; font-weight: 700; color: var(--primary); }
+  .wc-meaning { font-size: 13px; color: #334155; margin-bottom: 4px; padding-left: 38px; }
+  .wc-example { font-size: 12px; color: var(--muted); padding-left: 38px; font-style: italic; }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 24px;
+    padding: 14px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">🌟 Day 7 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #61〜#70 ｜ 2026年5月13日（水）</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+
+<div class="progress-section">
+  <div class="progress-label">
+    <span>📊 全体進捗</span>
+    <span>70 / 1000語 完了</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 7%"></div>
+  </div>
+</div>
+
+<div class="word-chips">
+  <span class="chip">pour</span>
+  <span class="chip">spill</span>
+  <span class="chip">rise</span>
+  <span class="chip">hang</span>
+  <span class="chip">store</span>
+  <span class="chip">postpone</span>
+  <span class="chip">inform</span>
+  <span class="chip">fix</span>
+  <span class="chip">reply</span>
+  <span class="chip">protect</span>
+</div>
+
+<div class="card">
+  <div class="card-title">📖 今日のストーリー</div>
+
+  <div class="audio-controls">
+    <button class="play-btn" onclick="playStory()">▶ 音読スタート</button>
+    <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+    <div class="speed-btns">
+      <button class="speed-btn" onclick="setSpeed(0.75, this)">0.75×</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0, this)">1.0×</button>
+      <button class="speed-btn" onclick="setSpeed(1.25, this)">1.25×</button>
+    </div>
+  </div>
+
+  <div class="story-title">The Voice That Could Not Wait 🌊</div>
+
+  <div class="story-text" id="storyText">
+    <p>One rainy afternoon, Maya could no longer <mark>postpone</mark> the conversation she had been dreading for weeks. As the president of her school's Environmental Club, she felt a deep responsibility to <mark>inform</mark> the local authorities about what she had witnessed at the river.</p>
+    <br>
+    <p>The incident had started with a single factory pipe — dark liquid began to <mark>pour</mark> into the water, and before anyone could react, an oil <mark>spill</mark> had spread across the entire surface of the stream. She had watched helplessly as a thick black cloud began to <mark>rise</mark> from the contaminated water, and she had taken photographs to <mark>store</mark> as evidence on her laptop.</p>
+    <br>
+    <p>Now those photographs <mark>hang</mark> on the bulletin board of the student council room, impossible to ignore. Maya had decided: she would <mark>fix</mark> this — not alone, but with the power of community. She sent a formal letter to the city office, and their <mark>reply</mark> arrived the very next morning.</p>
+    <br>
+    <p>"We are launching an immediate investigation to <mark>protect</mark> the river ecosystem," it read.</p>
+    <br>
+    <p>Maya smiled for the first time in weeks. Her voice had mattered. And sometimes, that is enough to change the world.</p>
+  </div>
+
+  <div class="translation">
+    <strong>【日本語訳】</strong><br><br>
+    雨の降るある午後、マヤはもうこれ以上、何週間も恐れていたその会話を<strong>先延ばし</strong>にすることはできなかった。学校の環境クラブの部長として、彼女は自分が川で目撃したことを地元当局に<strong>知らせる</strong>責任を深く感じていた。<br><br>
+    その出来事は、一本の工場の排水管から始まった。黒い液体が川に<strong>流れ込み</strong>始め、誰も反応できないうちに、油の<strong>流出</strong>が川全体に広がっていた。彼女は汚染された水から黒い雲が<strong>立ち上がる</strong>のを無力に見守り、ラップトップに証拠として<strong>保存する</strong>ために写真を撮った。<br><br>
+    今、その写真は生徒会室の掲示板に<strong>貼られ</strong>、目を背けることができない。マヤは決心した。一人ではなく、地域のつながりの力でこの問題を<strong>解決する</strong>のだと。彼女は市役所に正式な手紙を送り、翌朝にはその<strong>返事</strong>が届いた。<br><br>
+    「川の生態系を<strong>守る</strong>ため、ただちに調査を開始します」とあった。<br><br>
+    マヤは何週間かぶりに笑顔になった。自分の声は届いたのだ。そして時として、それだけで世界を変えるには十分なのだ。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔬 CLIL豆知識 — 環境科学</div>
+  <div class="clil-box">
+    <div class="clil-title">🌿 油流出と水生生態系への影響</div>
+    川や海での油流出（oil spill）が起こると、油膜が水面に張り、酸素が水中に溶け込むのを妨げます（酸素欠乏）。この結果、魚や水生生物が大量死する「死の海」が生まれることがあります。また、油は鳥の羽毛にも付着し、体温調節を妨げて命を奪います。環境回復には数十年かかることもあり、一刻も早い通報と対応が重要です。実際に1989年のアラスカ沖エクソン・バルディーズ号事故では、流出した原油が約2,000kmの海岸線に影響を与えました。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日の単語まとめ</div>
+
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#61</span><span class="wc-word">pour</span></div>
+    <div class="wc-meaning">〈液体が〉流れ込む、注ぐ</div>
+    <div class="wc-example">Dark liquid began to pour into the river.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#62</span><span class="wc-word">spill</span></div>
+    <div class="wc-meaning">こぼれる；流出（事故）</div>
+    <div class="wc-example">An oil spill spread across the stream.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#63</span><span class="wc-word">rise</span></div>
+    <div class="wc-meaning">上がる、立ち上る</div>
+    <div class="wc-example">A black cloud began to rise from the water.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#64</span><span class="wc-word">hang</span></div>
+    <div class="wc-meaning">掛かっている、吊るす</div>
+    <div class="wc-example">The photographs hang on the bulletin board.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#65</span><span class="wc-word">store</span></div>
+    <div class="wc-meaning">保存する、蓄える</div>
+    <div class="wc-example">She decided to store the evidence on her laptop.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#66</span><span class="wc-word">postpone</span></div>
+    <div class="wc-meaning">先延ばしにする、延期する</div>
+    <div class="wc-example">She could no longer postpone the conversation.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#67</span><span class="wc-word">inform</span></div>
+    <div class="wc-meaning">知らせる、通報する</div>
+    <div class="wc-example">She felt a responsibility to inform the authorities.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#68</span><span class="wc-word">fix</span></div>
+    <div class="wc-meaning">解決する、修理する</div>
+    <div class="wc-example">She was determined to fix this environmental problem.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#69</span><span class="wc-word">reply</span></div>
+    <div class="wc-meaning">返事、返答する</div>
+    <div class="wc-example">Their reply arrived the very next morning.</div>
+  </div>
+  <div class="word-card">
+    <div class="wc-header"><span class="wc-num">#70</span><span class="wc-word">protect</span></div>
+    <div class="wc-meaning">守る、保護する</div>
+    <div class="wc-example">They launched an investigation to protect the ecosystem.</div>
+  </div>
+</div>
+
+<div class="footer">
+  ユメタン１ 音読ストーリー Day 7 ｜ 次回は単語 #71〜#80
+</div>
+
+<script>
+const STORY_TEXT_PLAIN = `One rainy afternoon, Maya could no longer postpone the conversation she had been dreading for weeks. As the president of her school's Environmental Club, she felt a deep responsibility to inform the local authorities about what she had witnessed at the river.
+
+The incident had started with a single factory pipe. Dark liquid began to pour into the water, and before anyone could react, an oil spill had spread across the entire surface of the stream. She had watched helplessly as a thick black cloud began to rise from the contaminated water, and she had taken photographs to store as evidence on her laptop.
+
+Now those photographs hang on the bulletin board of the student council room, impossible to ignore. Maya had decided: she would fix this, not alone, but with the power of community. She sent a formal letter to the city office, and their reply arrived the very next morning.
+
+We are launching an immediate investigation to protect the river ecosystem, it read.
+
+Maya smiled for the first time in weeks. Her voice had mattered. And sometimes, that is enough to change the world.`;
+
+let speechRate = 1.0;
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function playStory() {
+  if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);
+  utt.lang = 'en-US'; utt.rate = speechRate; utt.pitch = 1.0;
+  const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  window.speechSynthesis.speak(utt);
+}
+function stopStory() { window.speechSynthesis.cancel(); }
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+</body>
+</html>
