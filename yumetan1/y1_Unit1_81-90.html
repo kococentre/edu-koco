@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 9 | #81-90</title>
+<style>
+  :root { --primary:#0f766e; --primary-light:#5eead4; --accent:#f59e0b; --green:#10b981; --red:#ef4444; --bg:#f0fdfa; --card-bg:#ffffff; --text:#134e4a; --muted:#64748b; --border:#ccfbf1; --highlight-bg:#fef9c3; --highlight-border:#fde047; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif; background:var(--bg); color:var(--text); padding:16px; max-width:680px; margin:0 auto; line-height:1.7; }
+  .header { background:linear-gradient(135deg,var(--primary) 0%,#0d9488 100%); color:white; border-radius:16px; padding:24px 20px; text-align:center; margin-bottom:20px; box-shadow:0 4px 16px rgba(15,118,110,0.3); }
+  .header-badge { display:inline-block; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:4px 14px; font-size:13px; font-weight:600; margin-bottom:10px; }
+  .header h1 { font-size:22px; font-weight:700; margin-bottom:8px; }
+  .subtitle { font-size:13px; opacity:0.85; margin-bottom:8px; }
+  .level-tag { display:inline-block; background:var(--accent); color:#78350f; border-radius:12px; padding:3px 12px; font-size:12px; font-weight:700; }
+  .progress-section { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:16px; }
+  .progress-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .progress-bar { background:#e2e8f0; border-radius:99px; height:10px; overflow:hidden; }
+  .progress-fill { background:linear-gradient(90deg,var(--primary-light),var(--primary)); height:100%; border-radius:99px; }
+  .word-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .chip { background:var(--highlight-bg); border:1.5px solid var(--highlight-border); border-radius:20px; padding:4px 12px; font-size:13px; font-weight:600; color:#78350f; }
+  .card { background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:18px; margin-bottom:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .card-title { font-size:15px; font-weight:700; color:var(--primary); margin-bottom:12px; }
+  .story-title { font-size:17px; font-weight:700; color:var(--primary); margin-bottom:12px; text-align:center; }
+  .story-text { font-size:15.5px; line-height:1.9; color:#1e3a37; }
+  .story-text mark { background:var(--highlight-bg); border-bottom:2px solid var(--accent); border-radius:2px; padding:0 2px; color:#78350f; font-weight:600; }
+  .translation { font-size:13.5px; color:var(--muted); line-height:1.8; border-top:1px solid var(--border); margin-top:14px; padding-top:12px; }
+  .clil-box { background:#f0fdf4; border-left:4px solid var(--green); border-radius:0 10px 10px 0; padding:14px 16px; font-size:13.5px; line-height:1.8; color:#14532d; }
+  .clil-title { font-weight:700; color:var(--green); margin-bottom:6px; font-size:14px; }
+  .audio-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .play-btn { background:var(--primary); color:white; border:none; border-radius:24px; padding:9px 20px; font-size:14px; font-weight:600; cursor:pointer; }
+  .stop-btn { background:white; color:var(--red); border:1.5px solid var(--red); border-radius:24px; padding:8px 16px; font-size:14px; font-weight:600; cursor:pointer; }
+  .speed-btns { display:flex; gap:5px; margin-left:auto; }
+  .speed-btn { background:white; color:var(--primary); border:1.5px solid var(--primary-light); border-radius:16px; padding:5px 11px; font-size:12px; font-weight:600; cursor:pointer; }
+  .speed-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+  .word-card { border:1px solid var(--border); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:#f8fffe; }
+  .word-card:last-child { margin-bottom:0; }
+  .wc-header { display:flex; align-items:baseline; gap:10px; margin-bottom:5px; }
+  .wc-num { font-size:11px; color:var(--muted); font-weight:600; min-width:28px; }
+  .wc-word { font-size:17px; font-weight:700; color:var(--primary); }
+  .wc-meaning { font-size:13px; color:#334155; margin-bottom:4px; padding-left:38px; }
+  .wc-example { font-size:12px; color:var(--muted); padding-left:38px; font-style:italic; }
+  .footer { text-align:center; font-size:12px; color:var(--muted); margin-top:24px; padding:14px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">🌟 Day 9 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #81〜#90 ｜ 2026年5月19日</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+<div class="progress-section">
+  <div class="progress-label"><span>📊 全体進捗</span><span>90 / 1000語 完了</span></div>
+  <div class="progress-bar"><div class="progress-fill" style="width:9%"></div></div>
+</div>
+<div class="word-chips">
+  <span class="chip">slight</span><span class="chip">bare</span><span class="chip">loose</span>
+  <span class="chip">frequent</span><span class="chip">vain</span><span class="chip">private</span>
+  <span class="chip">accustomed</span><span class="chip">spare</span><span class="chip">rough</span>
+  <span class="chip">precious</span>
+</div>
+<div class="card">
+  <div class="card-title">📖 今日のストーリー</div>
+  <div class="audio-controls">
+    <button class="play-btn" onclick="playStory()">▶ 音読スタート</button>
+    <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+    <div class="speed-btns">
+      <button class="speed-btn" onclick="setSpeed(0.75,this)">0.75×</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0,this)">1.0×</button>
+      <button class="speed-btn" onclick="setSpeed(1.25,this)">1.25×</button>
+    </div>
+  </div>
+  <div class="story-title">The Notebook Under the Bed 📓</div>
+  <div class="story-text">
+    <p>Riku kept his notebook in a shoebox under his bed — a <mark>private</mark> place where no one else would look. The pages were <mark>rough</mark> with eraser marks and ink smudges, <mark>bare</mark> of any decoration, yet to him they were more <mark>precious</mark> than anything else he owned.</p>
+    <br>
+    <p>He had grown <mark>accustomed</mark> to writing late at night, when the house was quiet and the rest of the world seemed to disappear. His words came in <mark>loose</mark>, unfiltered bursts — not polished, not perfect. He would <mark>spare</mark> no emotion, putting everything down, even the things that made him uncomfortable to admit.</p>
+    <br>
+    <p>Some nights, ideas came only in <mark>slight</mark> flickers — a vague image, a half-formed feeling. On those nights, he would make <mark>frequent</mark> attempts to find the right phrase, trying again and again in what might seem like a <mark>vain</mark> effort. But Riku believed that no honest word was ever truly wasted.</p>
+    <br>
+    <p>Because one day, someone would read those rough pages — and feel a little less alone in the world.</p>
+  </div>
+  <div class="translation">
+    <strong>【日本語訳】</strong><br><br>
+    リクはノートをベッドの下の靴箱に入れていた――誰にも見られない<strong>プライベートな</strong>場所に。ページは消しゴムの跡とインクの汚れで<strong>ざらざら</strong>していて、飾り気は一切なく<strong>むき出し</strong>だったが、彼にとっては持ち物の中で誰よりも<strong>大切な</strong>ものだった。<br><br>
+    夜、家が静まり返って世界が消えていくようなとき、彼は遅い時間に書くことに<strong>慣れ親しんで</strong>いた。言葉は<strong>ゆるく</strong>、ろ過されない形で溢れ出てきた――磨かれてもなく、完璧でもなく。感情を一切<strong>惜しまず</strong>、認めるのが辛いことでも何でも書き留めた。<br><br>
+    夜によっては、アイデアはほんの<strong>わずかな</strong>閃きでしかなかった――ぼんやりとした映像、形になりかけた感情。そんな夜は、正しい表現を見つけようと<strong>何度も</strong>試み、無駄な努力に見えるかもしれないことを繰り返した。でもリクは、誠実な言葉は決して無駄にはならないと信じていた。<br><br>
+    なぜならいつかだれかがそのざらざらのページを読んで――世界でひとりじゃないと感じてくれるから。
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">🔬 CLIL豆知識 — 心理学</div>
+  <div class="clil-box">
+    <div class="clil-title">✍️ 書くことの治癒効果（筆記療法）</div>
+    自分の感情や考えを文章にする「筆記療法（Expressive Writing）」は、心理学者ジェームズ・ペネベーカーの研究で科学的な効果が証明されています。週3〜4回、15〜20分書くだけで、ストレスの軽減、免疫機能の向上、睡眠の改善が見られたと報告されています。日記やジャーナリングが「メンタルヘルスのセルフケア」として世界中で注目されているのも、こうした研究が背景にあります。
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">📝 今日の単語まとめ</div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#81</span><span class="wc-word">slight</span></div><div class="wc-meaning">わずかな、ほんのわずかの</div><div class="wc-example">There was a slight chance of rain in the afternoon.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#82</span><span class="wc-word">bare</span></div><div class="wc-meaning">むき出しの、何もない</div><div class="wc-example">The bare walls of the room felt cold and empty.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#83</span><span class="wc-word">loose</span></div><div class="wc-meaning">ゆるい、締まっていない</div><div class="wc-example">The screw was loose and needed to be tightened.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#84</span><span class="wc-word">frequent</span></div><div class="wc-meaning">頻繁な、よくある</div><div class="wc-example">She made frequent visits to the library after school.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#85</span><span class="wc-word">vain</span></div><div class="wc-meaning">無駄な、無益な；うぬぼれた</div><div class="wc-example">His attempts to fix it were in vain.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#86</span><span class="wc-word">private</span></div><div class="wc-meaning">個人的な、プライベートな</div><div class="wc-example">She kept her diary in a private drawer.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#87</span><span class="wc-word">accustomed</span></div><div class="wc-meaning">慣れている（be accustomed to）</div><div class="wc-example">He was accustomed to waking up early every morning.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#88</span><span class="wc-word">spare</span></div><div class="wc-meaning">惜しまない；予備の</div><div class="wc-example">She spared no effort to help her students succeed.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#89</span><span class="wc-word">rough</span></div><div class="wc-meaning">ざらざらした；おおまかな</div><div class="wc-example">He made a rough sketch of his ideas on paper.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#90</span><span class="wc-word">precious</span></div><div class="wc-meaning">貴重な、大切な</div><div class="wc-example">Time is the most precious thing we have.</div></div>
+</div>
+<div class="footer">ユメタン１ 音読ストーリー Day 9 ｜ 次回は単語 #91〜#100</div>
+<script>
+const STORY_TEXT_PLAIN = `Riku kept his notebook in a shoebox under his bed — a private place where no one else would look. The pages were rough with eraser marks and ink smudges, bare of any decoration, yet to him they were more precious than anything else he owned.
+
+He had grown accustomed to writing late at night, when the house was quiet and the rest of the world seemed to disappear. His words came in loose, unfiltered bursts — not polished, not perfect. He would spare no emotion, putting everything down, even the things that made him uncomfortable to admit.
+
+Some nights, ideas came only in slight flickers — a vague image, a half-formed feeling. On those nights, he would make frequent attempts to find the right phrase, trying again and again in what might seem like a vain effort. But Riku believed that no honest word was ever truly wasted.
+
+Because one day, someone would read those rough pages — and feel a little less alone in the world.`;
+let speechRate = 1.0;
+function setSpeed(rate, btn) { speechRate = rate; document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+function playStory() { if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; } window.speechSynthesis.cancel(); const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN); utt.lang = 'en-US'; utt.rate = speechRate; utt.pitch = 1.0; const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en')); if (v) utt.voice = v; window.speechSynthesis.speak(utt); }
+function stopStory() { window.speechSynthesis.cancel(); }
+if (window.speechSynthesis) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+</script>
+</body>
+</html>

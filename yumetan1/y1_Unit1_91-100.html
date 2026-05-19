@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 10 | #91-100</title>
+<style>
+  :root { --primary:#0f766e; --primary-light:#5eead4; --accent:#f59e0b; --green:#10b981; --red:#ef4444; --bg:#f0fdfa; --card-bg:#ffffff; --text:#134e4a; --muted:#64748b; --border:#ccfbf1; --highlight-bg:#fef9c3; --highlight-border:#fde047; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif; background:var(--bg); color:var(--text); padding:16px; max-width:680px; margin:0 auto; line-height:1.7; }
+  .header { background:linear-gradient(135deg,var(--primary) 0%,#0d9488 100%); color:white; border-radius:16px; padding:24px 20px; text-align:center; margin-bottom:20px; box-shadow:0 4px 16px rgba(15,118,110,0.3); }
+  .header-badge { display:inline-block; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:4px 14px; font-size:13px; font-weight:600; margin-bottom:10px; }
+  .unit-complete { display:inline-block; background:rgba(245,158,11,0.9); color:#fff; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:700; margin-left:8px; }
+  .header h1 { font-size:22px; font-weight:700; margin-bottom:8px; }
+  .subtitle { font-size:13px; opacity:0.85; margin-bottom:8px; }
+  .level-tag { display:inline-block; background:var(--accent); color:#78350f; border-radius:12px; padding:3px 12px; font-size:12px; font-weight:700; }
+  .progress-section { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:16px; }
+  .progress-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .progress-bar { background:#e2e8f0; border-radius:99px; height:10px; overflow:hidden; }
+  .progress-fill { background:linear-gradient(90deg,var(--primary-light),var(--primary)); height:100%; border-radius:99px; }
+  .unit-banner { background:linear-gradient(135deg,#f59e0b,#d97706); color:white; border-radius:12px; padding:12px 16px; margin-bottom:16px; text-align:center; font-weight:700; font-size:14px; }
+  .word-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .chip { background:var(--highlight-bg); border:1.5px solid var(--highlight-border); border-radius:20px; padding:4px 12px; font-size:13px; font-weight:600; color:#78350f; }
+  .card { background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:18px; margin-bottom:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .card-title { font-size:15px; font-weight:700; color:var(--primary); margin-bottom:12px; }
+  .story-title { font-size:17px; font-weight:700; color:var(--primary); margin-bottom:12px; text-align:center; }
+  .story-text { font-size:15.5px; line-height:1.9; color:#1e3a37; }
+  .story-text mark { background:var(--highlight-bg); border-bottom:2px solid var(--accent); border-radius:2px; padding:0 2px; color:#78350f; font-weight:600; }
+  .translation { font-size:13.5px; color:var(--muted); line-height:1.8; border-top:1px solid var(--border); margin-top:14px; padding-top:12px; }
+  .clil-box { background:#f0fdf4; border-left:4px solid var(--green); border-radius:0 10px 10px 0; padding:14px 16px; font-size:13.5px; line-height:1.8; color:#14532d; }
+  .clil-title { font-weight:700; color:var(--green); margin-bottom:6px; font-size:14px; }
+  .audio-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .play-btn { background:var(--primary); color:white; border:none; border-radius:24px; padding:9px 20px; font-size:14px; font-weight:600; cursor:pointer; }
+  .stop-btn { background:white; color:var(--red); border:1.5px solid var(--red); border-radius:24px; padding:8px 16px; font-size:14px; font-weight:600; cursor:pointer; }
+  .speed-btns { display:flex; gap:5px; margin-left:auto; }
+  .speed-btn { background:white; color:var(--primary); border:1.5px solid var(--primary-light); border-radius:16px; padding:5px 11px; font-size:12px; font-weight:600; cursor:pointer; }
+  .speed-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+  .word-card { border:1px solid var(--border); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:#f8fffe; }
+  .word-card:last-child { margin-bottom:0; }
+  .wc-header { display:flex; align-items:baseline; gap:10px; margin-bottom:5px; }
+  .wc-num { font-size:11px; color:var(--muted); font-weight:600; min-width:28px; }
+  .wc-word { font-size:17px; font-weight:700; color:var(--primary); }
+  .wc-meaning { font-size:13px; color:#334155; margin-bottom:4px; padding-left:38px; }
+  .wc-example { font-size:12px; color:var(--muted); padding-left:38px; font-style:italic; }
+  .footer { text-align:center; font-size:12px; color:var(--muted); margin-top:24px; padding:14px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">🌟 Day 10 / 100</div>
+  <span class="unit-complete">🎉 Unit 1 完了！</span>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #91〜#100 ｜ 2026年5月19日</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+<div class="progress-section">
+  <div class="progress-label"><span>📊 全体進捗</span><span>100 / 1000語 完了 🎊</span></div>
+  <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+</div>
+<div class="unit-banner">🏆 Unit 1（単語 #1〜#100）コンプリート！次はUnit 2へ！</div>
+<div class="word-chips">
+  <span class="chip">distant</span><span class="chip">worth</span><span class="chip">available</span>
+  <span class="chip">casual</span><span class="chip">conscious</span><span class="chip">exact</span>
+  <span class="chip">sufficient</span><span class="chip">further</span><span class="chip">ordinary</span>
+  <span class="chip">eager</span>
+</div>
+<div class="card">
+  <div class="card-title">📖 今日のストーリー</div>
+  <div class="audio-controls">
+    <button class="play-btn" onclick="playStory()">▶ 音読スタート</button>
+    <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+    <div class="speed-btns">
+      <button class="speed-btn" onclick="setSpeed(0.75,this)">0.75×</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0,this)">1.0×</button>
+      <button class="speed-btn" onclick="setSpeed(1.25,this)">1.25×</button>
+    </div>
+  </div>
+  <div class="story-title">One Step Further ✨</div>
+  <div class="story-text">
+    <p>On the surface, Hana looked like an <mark>ordinary</mark> student — <mark>casual</mark> in her clothes, quiet in the hallways, easy to overlook. But inside, she was deeply <mark>conscious</mark> of a dream that felt <mark>distant</mark> yet never impossible: to become the first in her family to study abroad.</p>
+    <br>
+    <p>She was <mark>eager</mark> to prove that hard work was <mark>sufficient</mark> — that she didn't need perfect grades or a wealthy background, just enough determination to go one step <mark>further</mark> each day. She made herself <mark>available</mark> for every extra class, every practice test, every opportunity that came her way, taking <mark>exact</mark> notes and reviewing them late into the night.</p>
+    <br>
+    <p>Was it <mark>worth</mark> it? Some days, the answer felt uncertain. But Hana kept going, driven by the quiet belief that the further she pushed herself, the closer the horizon came.</p>
+    <br>
+    <p>And then, one autumn morning, an acceptance letter arrived — from a university she had once thought too distant to dream of. She read it once, then twice, and smiled.</p>
+    <br>
+    <p><em>Ordinary beginnings,</em> she thought, <em>can lead to extraordinary places.</em></p>
+  </div>
+  <div class="translation">
+    <strong>【日本語訳】</strong><br><br>
+    表面上、ハナは<strong>ごく普通の</strong>生徒に見えた――服装も<strong>カジュアル</strong>で、廊下では静かで、目立たない存在。でも心の中では、<strong>遠く</strong>感じながらも決して不可能ではない夢を深く<strong>意識して</strong>いた。家族で初めて海外留学すること。<br><br>
+    努力だけで<strong>十分</strong>だということを証明したかった――完璧な成績も裕福な家庭も必要ない、毎日もう一歩<strong>先へ</strong>進む意志さえあれば。彼女はあらゆる補習授業、模擬試験、チャンスに<strong>積極的に参加</strong>できるよう準備し、<strong>正確な</strong>ノートを取り、夜遅くまで復習した。<br><br>
+    それは<strong>価値のある</strong>ことだったのか？答えに自信が持てない日もあった。でもハナは前へ進み続けた。自分を押せば押すほど、地平線が近づいてくると信じて。<br><br>
+    そしてある秋の朝、合格通知が届いた――かつては遠すぎて夢見ることさえできなかった大学からの。彼女はそれを一度読み、もう一度読み、笑顔になった。<br><br>
+    「<strong>ごく普通の</strong>スタートが、特別な場所へと続くこともある」と彼女は思った。
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">🔬 CLIL豆知識 — 教育社会学</div>
+  <div class="clil-box">
+    <div class="clil-title">🎓 ファーストジェネレーション（第一世代大学生）</div>
+    家族の中で初めて大学や海外留学に進む人を「ファーストジェネレーション（First-Generation Student）」と呼びます。彼らはロールモデルが身近にいないという特有の困難を抱えながらも、強いモチベーションを持つことが多いとされています。アメリカの研究では、第一世代の学生は4年制大学を卒業する割合が低い一方、大学卒業後の家族への経済的貢献が大きいというデータもあります。社会的流動性（Social Mobility）を高める上で、教育の機会均等は世界共通の重要課題です。
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">📝 今日の単語まとめ</div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#91</span><span class="wc-word">distant</span></div><div class="wc-meaning">遠い、疎遠な</div><div class="wc-example">Her dream felt distant but not impossible.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#92</span><span class="wc-word">worth</span></div><div class="wc-meaning">〜の価値がある</div><div class="wc-example">All the hard work was worth it in the end.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#93</span><span class="wc-word">available</span></div><div class="wc-meaning">利用できる；手が空いている</div><div class="wc-example">Are you available to meet this Saturday?</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#94</span><span class="wc-word">casual</span></div><div class="wc-meaning">カジュアルな、くだけた</div><div class="wc-example">The dress code for the party was casual.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#95</span><span class="wc-word">conscious</span></div><div class="wc-meaning">意識している、自覚している</div><div class="wc-example">She was conscious of how hard her parents worked.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#96</span><span class="wc-word">exact</span></div><div class="wc-meaning">正確な、ぴったりの</div><div class="wc-example">Tell me the exact time the train leaves.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#97</span><span class="wc-word">sufficient</span></div><div class="wc-meaning">十分な、足りている</div><div class="wc-example">Is one hour sufficient to finish the report?</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#98</span><span class="wc-word">further</span></div><div class="wc-meaning">さらに、もっと先へ</div><div class="wc-example">She decided to study further after graduation.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#99</span><span class="wc-word">ordinary</span></div><div class="wc-meaning">普通の、ありふれた</div><div class="wc-example">It started as an ordinary Tuesday morning.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#100</span><span class="wc-word">eager</span></div><div class="wc-meaning">熱望している、熱心な</div><div class="wc-example">The students were eager to hear the results.</div></div>
+</div>
+<div class="footer">ユメタン１ 音読ストーリー Day 10 ｜ 🎉 Unit 1 完了！次はUnit 2（#101〜）へ！</div>
+<script>
+const STORY_TEXT_PLAIN = `On the surface, Hana looked like an ordinary student — casual in her clothes, quiet in the hallways, easy to overlook. But inside, she was deeply conscious of a dream that felt distant yet never impossible: to become the first in her family to study abroad.
+
+She was eager to prove that hard work was sufficient — that she didn't need perfect grades or a wealthy background, just enough determination to go one step further each day. She made herself available for every extra class, every practice test, every opportunity that came her way, taking exact notes and reviewing them late into the night.
+
+Was it worth it? Some days, the answer felt uncertain. But Hana kept going, driven by the quiet belief that the further she pushed herself, the closer the horizon came.
+
+And then, one autumn morning, an acceptance letter arrived — from a university she had once thought too distant to dream of. She read it once, then twice, and smiled.
+
+Ordinary beginnings, she thought, can lead to extraordinary places.`;
+let speechRate = 1.0;
+function setSpeed(rate, btn) { speechRate = rate; document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+function playStory() { if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; } window.speechSynthesis.cancel(); const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN); utt.lang = 'en-US'; utt.rate = speechRate; utt.pitch = 1.0; const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en')); if (v) utt.voice = v; window.speechSynthesis.speak(utt); }
+function stopStory() { window.speechSynthesis.cancel(); }
+if (window.speechSynthesis) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+</script>
+</body>
+</html>

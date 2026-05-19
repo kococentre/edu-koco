@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 5 | #41-50</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-light: #5eead4;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --muted: #64748b;
+    --border: #ccfbf1;
+    --highlight-bg: #fef9c3;
+    --highlight-border: #fde047;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; background: var(--bg); color: var(--text); padding: 16px; max-width: 680px; margin: 0 auto; line-height: 1.7; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, #0d9488 100%); color: white; border-radius: 16px; padding: 24px 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(15,118,110,0.3); }
+  .header-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 4px 14px; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .subtitle { font-size: 13px; opacity: 0.85; margin-bottom: 8px; }
+  .level-tag { display: inline-block; background: var(--accent); color: #78350f; border-radius: 12px; padding: 3px 12px; font-size: 12px; font-weight: 700; }
+  .progress-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .progress-bar { background: #e2e8f0; border-radius: 99px; height: 10px; overflow: hidden; }
+  .progress-fill { background: linear-gradient(90deg, var(--primary-light), var(--primary)); height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+  .word-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip { background: var(--highlight-bg); border: 1.5px solid var(--highlight-border); border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; color: #78350f; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .card-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+  .story-title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 12px; text-align: center; }
+  .story-text { font-size: 15.5px; line-height: 1.9; color: #1e3a37; }
+  .story-text mark { background: var(--highlight-bg); border-bottom: 2px solid var(--accent); border-radius: 2px; padding: 0 2px; color: #78350f; font-weight: 600; }
+  .translation { font-size: 13.5px; color: var(--muted); line-height: 1.8; border-top: 1px solid var(--border); margin-top: 14px; padding-top: 12px; }
+  .clil-box { background: #f0fdf4; border-left: 4px solid var(--green); border-radius: 0 10px 10px 0; padding: 14px 16px; font-size: 13.5px; line-height: 1.8; color: #14532d; }
+  .clil-title { font-weight: 700; color: var(--green); margin-bottom: 6px; font-size: 14px; }
+  .audio-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .play-btn { background: var(--primary); color: white; border: none; border-radius: 24px; padding: 9px 20px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .stop-btn { background: white; color: var(--red); border: 1.5px solid var(--red); border-radius: 24px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .speed-btns { display: flex; gap: 5px; margin-left: auto; }
+  .speed-btn { background: white; color: var(--primary); border: 1.5px solid var(--primary-light); border-radius: 16px; padding: 5px 11px; font-size: 12px; font-weight: 600; cursor: pointer; }
+  .speed-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+  .word-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: #f8fffe; }
+  .word-card:last-child { margin-bottom: 0; }
+  .wc-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+  .wc-num { font-size: 11px; color: var(--muted); font-weight: 600; min-width: 28px; }
+  .wc-word { font-size: 17px; font-weight: 700; color: var(--primary); }
+  .wc-meaning { font-size: 13px; color: #334155; margin-bottom: 4px; padding-left: 38px; }
+  .wc-example { font-size: 12px; color: var(--muted); padding-left: 38px; font-style: italic; }
+  .footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 24px; padding: 14px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">🌟 Day 5 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #41〜#50 ｜ 2026年5月19日</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+<div class="progress-section">
+  <div class="progress-label"><span>📊 全体進捗</span><span>50 / 1000語 完了</span></div>
+  <div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div>
+</div>
+<div class="word-chips">
+  <span class="chip">feed</span><span class="chip">consume</span><span class="chip">reduce</span>
+  <span class="chip">communicate</span><span class="chip">estimate</span><span class="chip">last</span>
+  <span class="chip">seize</span><span class="chip">decorate</span><span class="chip">range</span>
+  <span class="chip">rent</span>
+</div>
+<div class="card">
+  <div class="card-title">📖 今日のストーリー</div>
+  <div class="audio-controls">
+    <button class="play-btn" onclick="playStory()">▶ 音読スタート</button>
+    <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+    <div class="speed-btns">
+      <button class="speed-btn" onclick="setSpeed(0.75,this)">0.75×</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0,this)">1.0×</button>
+      <button class="speed-btn" onclick="setSpeed(1.25,this)">1.25×</button>
+    </div>
+  </div>
+  <div class="story-title">A Garden That Could Change Everything 🌱</div>
+  <div class="story-text">
+    <p>The empty lot behind Kenta's school had been abandoned for years. A local landowner had tried to <mark>rent</mark> it out as a parking space, but there were no takers. One afternoon, Kenta stood at the fence and thought: <em>What if we turned this into something that could <mark>last</mark>?</em></p>
+    <br>
+    <p>He began to <mark>estimate</mark> how much the space could produce — enough vegetables to <mark>feed</mark> at least thirty families each month. His plan was bold: <mark>reduce</mark> food waste in the neighborhood by growing fresh produce and giving it away for free. He started to <mark>communicate</mark> his idea to classmates, teachers, and local residents, and slowly, people began to listen.</p>
+    <br>
+    <p>Within weeks, volunteers came to <mark>seize</mark> the opportunity. They painted murals and used colorful planters to <mark>decorate</mark> the wooden fences. They planted a wide <mark>range</mark> of crops — tomatoes, herbs, leafy greens — and set up a small café corner. The project began to <mark>consume</mark> most of Kenta's free time, but he didn't mind at all.</p>
+    <br>
+    <p>"A garden like this doesn't just grow food," he told the local newspaper. "It grows community."</p>
+  </div>
+  <div class="translation">
+    <strong>【日本語訳】</strong><br><br>
+    ケンタの学校の裏にある空き地は、何年も放置されていた。地主は駐車場として<strong>貸し出そう</strong>としたが、借り手がいなかった。ある午後、ケンタはフェンスの前に立ち、こう考えた。「ここを、長く続くものに変えられないだろうか？」<br><br>
+    彼はスペースがどれだけ生産できるかを<strong>見積もり</strong>始めた――毎月少なくとも30家族を<strong>養える</strong>ほどの野菜が取れるはずだ。彼の計画は大胆なものだった。新鮮な農産物を育てて無料で配ることで、近隣の食品ロスを<strong>減らす</strong>のだ。彼はクラスメート、教師、地域住民に自分のアイデアを<strong>伝え</strong>始め、少しずつ人々が耳を傾けるようになった。<br><br>
+    数週間のうちに、ボランティアたちがこのチャンスを<strong>つかみ</strong>にやってきた。彼らは木製フェンスにカラフルな植木鉢を飾り、壁画を描いて<strong>デコレーション</strong>した。トマト、ハーブ、葉物野菜など幅広い<strong>種類</strong>の作物を植え、小さなカフェコーナーも作った。このプロジェクトはケンタの自由時間の大半を<strong>費やす</strong>ようになったが、彼はまったく気にしなかった。<br><br>
+    「このような庭は、食べ物を育てるだけじゃない」と彼は地元紙に語った。「コミュニティを育てるんだ。」
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">🔬 CLIL豆知識 — 社会・環境</div>
+  <div class="clil-box">
+    <div class="clil-title">🥦 フードロス（食品廃棄）の現実</div>
+    世界で生産される食料の約3分の1（約13億トン）が毎年廃棄されています。一方で、世界人口の約10%が飢餓状態にあります。日本だけでも年間約472万トンの食料が捨てられており（農林水産省, 2022年）、これは世界全体の食料援助量の約1.2倍に相当します。都市農業（Urban Farming）やコミュニティガーデンは、この格差を縮める取り組みとして世界中で注目されています。
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">📝 今日の単語まとめ</div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#41</span><span class="wc-word">feed</span></div><div class="wc-meaning">〜を養う、食べさせる</div><div class="wc-example">The garden can feed thirty families a month.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#42</span><span class="wc-word">consume</span></div><div class="wc-meaning">消費する、費やす</div><div class="wc-example">The project began to consume most of his time.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#43</span><span class="wc-word">reduce</span></div><div class="wc-meaning">減らす、削減する</div><div class="wc-example">We need to reduce food waste in our community.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#44</span><span class="wc-word">communicate</span></div><div class="wc-meaning">伝える、コミュニケーションをとる</div><div class="wc-example">She communicated her idea to the whole class.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#45</span><span class="wc-word">estimate</span></div><div class="wc-meaning">見積もる、推定する</div><div class="wc-example">He estimated the cost of the new project.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#46</span><span class="wc-word">last</span></div><div class="wc-meaning">続く、持続する</div><div class="wc-example">How long will this good weather last?</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#47</span><span class="wc-word">seize</span></div><div class="wc-meaning">つかむ、捉える</div><div class="wc-example">You must seize every opportunity that comes your way.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#48</span><span class="wc-word">decorate</span></div><div class="wc-meaning">飾る、装飾する</div><div class="wc-example">They decorated the hall with flowers and lights.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#49</span><span class="wc-word">range</span></div><div class="wc-meaning">範囲；幅広い種類</div><div class="wc-example">The store sells a wide range of products.</div></div>
+  <div class="word-card"><div class="wc-header"><span class="wc-num">#50</span><span class="wc-word">rent</span></div><div class="wc-meaning">借りる；家賃</div><div class="wc-example">They decided to rent the empty lot for one year.</div></div>
+</div>
+<div class="footer">ユメタン１ 音読ストーリー Day 5 ｜ 次回は単語 #51〜#60</div>
+<script>
+const STORY_TEXT_PLAIN = `The empty lot behind Kenta's school had been abandoned for years. A local landowner had tried to rent it out as a parking space, but there were no takers. One afternoon, Kenta stood at the fence and thought: What if we turned this into something that could last?
+
+He began to estimate how much the space could produce — enough vegetables to feed at least thirty families each month. His plan was bold: reduce food waste in the neighborhood by growing fresh produce and giving it away for free. He started to communicate his idea to classmates, teachers, and local residents, and slowly, people began to listen.
+
+Within weeks, volunteers came to seize the opportunity. They painted murals and used colorful planters to decorate the wooden fences. They planted a wide range of crops — tomatoes, herbs, leafy greens — and set up a small cafe corner. The project began to consume most of Kenta's free time, but he didn't mind at all.
+
+A garden like this doesn't just grow food, he told the local newspaper. It grows community.`;
+let speechRate = 1.0;
+function setSpeed(rate, btn) { speechRate = rate; document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+function playStory() { if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; } window.speechSynthesis.cancel(); const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN); utt.lang = 'en-US'; utt.rate = speechRate; utt.pitch = 1.0; const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en')); if (v) utt.voice = v; window.speechSynthesis.speak(utt); }
+function stopStory() { window.speechSynthesis.cancel(); }
+if (window.speechSynthesis) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+</script>
+</body>
+</html>
