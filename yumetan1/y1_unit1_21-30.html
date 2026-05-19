@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 3</title>
+<style>
+:root {
+  --primary: #0f766e;
+  --primary-light: #5eead4;
+  --accent: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --bg: #f0fdfa;
+  --card-bg: #ffffff;
+  --text: #134e4a;
+  --muted: #64748b;
+  --border: #ccfbf1;
+  --highlight-bg: #fef9c3;
+  --highlight-border: #fde047;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.header { text-align: center; padding: 24px 16px 16px; }
+.header-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+h1 { font-size: 1.4rem; color: var(--primary); margin-bottom: 6px; }
+.subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; }
+.level-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.82rem;
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+.progress-section { margin: 4px 0; }
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.progress-bar { background: var(--border); border-radius: 8px; height: 10px; overflow: hidden; }
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  height: 100%;
+  border-radius: 8px;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(15,118,110,0.06);
+}
+.card-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.word-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--highlight-bg);
+  border: 1.5px solid var(--highlight-border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #92400e;
+}
+.story-title { font-size: 1.15rem; font-weight: bold; color: var(--primary); margin-bottom: 14px; }
+.story-text { font-size: 1.02rem; line-height: 1.9; }
+.story-text mark {
+  background: var(--highlight-bg);
+  border-bottom: 2px solid var(--highlight-border);
+  padding: 0 2px;
+  border-radius: 3px;
+  font-weight: 600;
+  color: #92400e;
+}
+.story-text p + p { margin-top: 12px; }
+.translation {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+.audio-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn:active { opacity: 0.75; }
+.btn-play { background: var(--primary); color: white; }
+.btn-stop { background: var(--red); color: white; }
+.speed-btn {
+  background: var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.speed-btn.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: bold;
+}
+.clil-box {
+  border-left: 4px solid var(--green);
+  background: #f0fdf4;
+  padding: 14px 16px;
+  border-radius: 0 12px 12px 0;
+}
+.clil-label {
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.clil-box p { font-size: 0.9rem; line-height: 1.75; color: #166534; }
+.word-cards { display: flex; flex-direction: column; gap: 12px; }
+.word-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.word-num {
+  font-size: 0.8rem;
+  color: white;
+  background: var(--primary);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.word-en { font-size: 1.05rem; font-weight: bold; color: var(--primary); }
+.word-jp { font-size: 0.88rem; color: var(--muted); margin-top: 2px; }
+.word-ex { font-size: 0.85rem; color: var(--text); margin-top: 6px; background: var(--bg); padding: 6px 10px; border-radius: 8px; }
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 20px 0 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">🌟 Day 3 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #21〜#30 ｜ 2026年5月9日（土）</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+
+<div class="card">
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>📊 学習進捗</span>
+      <span>30 / 1000語</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 3%;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日の10単語</div>
+  <div class="word-chips">
+    <span class="chip">divorce</span>
+    <span class="chip">diet</span>
+    <span class="chip">instruction</span>
+    <span class="chip">flavor</span>
+    <span class="chip">nap</span>
+    <span class="chip">majority</span>
+    <span class="chip">role</span>
+    <span class="chip">medicine</span>
+    <span class="chip">finance</span>
+    <span class="chip">fortune</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📖 音読ストーリー</div>
+  <div class="story-title">Choosing My Path 🌟</div>
+  <div class="story-text" id="storyText">
+    <p>When Yuki's parents announced their <mark>divorce</mark>, her world felt like it had split in two. Following her mother's <mark>instruction</mark> to "focus on what you can control," she changed her <mark>diet</mark>, cutting out expensive snacks and learning to cook simple, nourishing meals at home. The warm <mark>flavor</mark> of miso soup she prepared each morning became a quiet symbol of her determination.</p>
+    <p>After school, exhausted from long hours of studying, she would take a short <mark>nap</mark> and dream of the future. The <mark>majority</mark> of her classmates had already decided their paths, but Yuki was still searching for her <mark>role</mark> in the world. Her biology teacher urged her to consider <mark>medicine</mark>, pointing out how healers could transform lives from the inside out. Her economics teacher, however, spoke passionately about <mark>finance</mark> — how understanding money could lift entire communities out of poverty.</p>
+    <p>One autumn evening, Yuki opened her journal and wrote: <em>"My parents' <mark>fortune</mark> took different roads, but mine is still being written."</em> She closed her eyes, took a deep breath, and smiled — not because she had found the answer, but because she had finally found the courage to look for it.</p>
+  </div>
+
+  <div class="translation">
+    <strong>【日本語訳】</strong><br>
+    ユキの両親が<strong>離婚</strong>を告げたとき、彼女の世界は二つに割れたような気がした。「自分でコントロールできることに集中しなさい」という母の<strong>指示</strong>に従い、彼女は<strong>食生活</strong>を見直し、高いお菓子を断ち、家で簡単で栄養のある食事を作ることを覚えた。毎朝自分で作る味噌汁の温かい<strong>風味</strong>は、彼女の静かな意志の象徴になった。<br><br>
+    放課後、長時間の勉強で疲れた彼女は短い<strong>昼寝</strong>をとりながら未来を夢見た。クラスメートの<strong>大多数</strong>はすでに進路を決めていたが、ユキはまだ世界における自分の<strong>役割</strong>を探していた。生物の先生は<strong>医学</strong>を勧め、「医者は人の人生を内側から変えられる」と言った。一方、経済の先生は<strong>金融</strong>について情熱的に語った——お金を理解することで、地域社会全体を貧困から救えると。<br><br>
+    ある秋の夜、ユキは日記を開き、こう書いた。「両親の<strong>運命</strong>はそれぞれ違う道を歩んだ。でも私の道はまだ書かれている。」彼女は目を閉じ、深呼吸をして、微笑んだ——答えが見つかったからではなく、ついにそれを探す勇気を見つけたから。
+  </div>
+
+  <div class="audio-controls">
+    <button class="btn btn-play" onclick="playStory()">▶ 音声を再生</button>
+    <button class="btn btn-stop" onclick="stopStory()">⏹ 停止</button>
+    <button class="speed-btn active" onclick="setSpeed(0.8, this)">0.8×</button>
+    <button class="speed-btn" onclick="setSpeed(1.0, this)">1.0×</button>
+    <button class="speed-btn" onclick="setSpeed(1.2, this)">1.2×</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🌿 CLIL豆知識</div>
+  <div class="clil-box">
+    <div class="clil-label">🧠 Psychology — ストレスと意思決定</div>
+    <p>研究によると、慢性的なストレス（家庭環境の変化など）は脳の<strong>前頭前皮質（prefrontal cortex）</strong>の活動を低下させ、長期的な計画より短期的な感情反応が優先されやすくなります。だからこそ、「今できることに集中する」という姿勢は科学的にも有効なストレス対処法。日記を書く習慣は脳を整理し、前頭前皮質を鍛えるトレーニングにもなります！</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📚 単語まとめカード</div>
+  <div class="word-cards">
+    <div class="word-card">
+      <div class="word-num">21</div>
+      <div>
+        <div class="word-en">divorce</div>
+        <div class="word-jp">離婚；（物事の）分離</div>
+        <div class="word-ex">Her parents' divorce changed her perspective on relationships.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">22</div>
+      <div>
+        <div class="word-en">diet</div>
+        <div class="word-jp">食事（習慣）；食生活；ダイエット</div>
+        <div class="word-ex">She improved her diet by cooking fresh vegetables every day.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">23</div>
+      <div>
+        <div class="word-en">instruction</div>
+        <div class="word-jp">指示；教え；説明書</div>
+        <div class="word-ex">Follow the teacher's instruction to complete the assignment correctly.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">24</div>
+      <div>
+        <div class="word-en">flavor</div>
+        <div class="word-jp">風味；味わい；香り</div>
+        <div class="word-ex">The rich flavor of the soup brought back childhood memories.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">25</div>
+      <div>
+        <div class="word-en">nap</div>
+        <div class="word-jp">昼寝；うたた寝（をする）</div>
+        <div class="word-ex">A short nap after lunch can improve concentration and memory.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">26</div>
+      <div>
+        <div class="word-en">majority</div>
+        <div class="word-jp">大多数；過半数</div>
+        <div class="word-ex">The majority of students supported the new school policy.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">27</div>
+      <div>
+        <div class="word-en">role</div>
+        <div class="word-jp">役割；役；任務</div>
+        <div class="word-ex">Teachers play a vital role in shaping students' futures.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">28</div>
+      <div>
+        <div class="word-en">medicine</div>
+        <div class="word-jp">医学；薬；医療</div>
+        <div class="word-ex">Advances in medicine have significantly increased life expectancy.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">29</div>
+      <div>
+        <div class="word-en">finance</div>
+        <div class="word-jp">金融；財政；資金調達</div>
+        <div class="word-ex">She studied finance to better understand global economic systems.</div>
+      </div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">30</div>
+      <div>
+        <div class="word-en">fortune</div>
+        <div class="word-jp">運；幸運；財産；運命</div>
+        <div class="word-ex">Hard work and determination can shape your own fortune.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  ユメタン１ 音読ストーリー Day 3 ｜ 次回は単語 #31〜#40
+</footer>
+
+<script>
+const STORY_TEXT_PLAIN = `Choosing My Path. When Yuki's parents announced their divorce, her world felt like it had split in two. Following her mother's instruction to "focus on what you can control," she changed her diet, cutting out expensive snacks and learning to cook simple, nourishing meals at home. The warm flavor of miso soup she prepared each morning became a quiet symbol of her determination. After school, exhausted from long hours of studying, she would take a short nap and dream of the future. The majority of her classmates had already decided their paths, but Yuki was still searching for her role in the world. Her biology teacher urged her to consider medicine, pointing out how healers could transform lives from the inside out. Her economics teacher, however, spoke passionately about finance — how understanding money could lift entire communities out of poverty. One autumn evening, Yuki opened her journal and wrote: "My parents' fortune took different roads, but mine is still being written." She closed her eyes, took a deep breath, and smiled — not because she had found the answer, but because she had finally found the courage to look for it.`;
+
+let speechRate = 0.8;
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function playStory() {
+  if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);
+  utt.lang = 'en-US'; utt.rate = speechRate; utt.pitch = 1.0;
+  const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  window.speechSynthesis.speak(utt);
+}
+function stopStory() { window.speechSynthesis.cancel(); }
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+</body>
+</html>

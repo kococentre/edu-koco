@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 6</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-light: #5eead4;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --muted: #64748b;
+    --border: #ccfbf1;
+    --highlight-bg: #fef9c3;
+    --highlight-border: #fde047;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 16px;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, var(--primary), #0d9488);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(15,118,110,0.3);
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .header h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+  .subtitle { font-size: 0.9rem; opacity: 0.9; margin-bottom: 8px; }
+  .level-tag {
+    display: inline-block;
+    background: rgba(245,158,11,0.85);
+    border-radius: 12px;
+    padding: 4px 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .progress-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .progress-bar-track { background: #e2e8f0; border-radius: 8px; height: 10px; overflow: hidden; }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, var(--primary-light), var(--primary));
+    height: 100%;
+    border-radius: 8px;
+    width: 6%;
+  }
+
+  .word-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip {
+    background: var(--highlight-bg);
+    border: 1.5px solid var(--highlight-border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #78350f;
+  }
+
+  .audio-controls {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn { border: none; border-radius: 8px; padding: 8px 18px; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+  .btn-play { background: var(--primary); color: white; }
+  .btn-stop { background: #e2e8f0; color: var(--text); }
+  .speed-controls { display: flex; gap: 6px; margin-left: auto; }
+  .speed-btn {
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .speed-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+  .story-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+    margin-bottom: 20px;
+  }
+  .story-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+  .story-en {
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    line-height: 2.0;
+    color: #1e3a3a;
+    margin-bottom: 20px;
+  }
+  mark {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--highlight-border);
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .story-ja {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: #374151;
+    background: #f8fafc;
+    border-left: 3px solid var(--primary-light);
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .clil-box { background: #f0fdf4; border: 1.5px solid var(--green); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; }
+  .clil-title { font-size: 1rem; font-weight: 800; color: #065f46; margin-bottom: 10px; }
+  .clil-body { font-size: 0.9rem; line-height: 1.85; color: #1f2d1f; }
+
+  .vocab-section { margin-bottom: 24px; }
+  .vocab-title { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+  .vocab-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 14px;
+    align-items: start;
+  }
+  .vocab-num {
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .vocab-word { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+  .vocab-meaning { font-size: 0.88rem; color: var(--muted); margin: 2px 0 5px; }
+  .vocab-example { font-size: 0.88rem; color: #374151; font-style: italic; background: #f8fafc; border-radius: 6px; padding: 5px 9px; }
+
+  .footer { text-align: center; font-size: 0.82rem; color: var(--muted); padding: 16px 0 8px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-badge">🌟 Day 6 / 100</div>
+    <h1>ユメタン１ 音読ストーリー</h1>
+    <div class="subtitle">単語 #51〜#60 ｜ 2026年5月12日（火曜日）</div>
+    <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>📈 学習進捗</span>
+      <span>60 / 1000語 完了</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+
+  <div class="word-chips">
+    <span class="chip">sew</span>
+    <span class="chip">exclaim</span>
+    <span class="chip">stare</span>
+    <span class="chip">decay</span>
+    <span class="chip">possess</span>
+    <span class="chip">lie</span>
+    <span class="chip">cheer</span>
+    <span class="chip">wipe</span>
+    <span class="chip">wonder</span>
+    <span class="chip">purchase</span>
+  </div>
+
+  <div class="audio-controls">
+    <button class="btn btn-play" onclick="playStory()">▶ 音声再生</button>
+    <button class="btn btn-stop" onclick="stopStory()">⏹ 停止</button>
+    <div class="speed-controls">
+      <button class="speed-btn" onclick="setSpeed(0.75, this)">×0.75</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0, this)">×1.0</button>
+      <button class="speed-btn" onclick="setSpeed(1.25, this)">×1.25</button>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-title">🧵 The Last Stitch</div>
+
+    <div class="section-label">📖 English Story</div>
+    <div class="story-en">
+      <p>When Maya discovered an old kimono buried deep in her grandmother's closet, she could not help but <mark>stare</mark> at the intricate patterns that had somehow resisted <mark>decay</mark> for over sixty years. She began to <mark>wonder</mark> whether the fabric truly <mark>possess</mark>ed some kind of quiet resilience — a strength woven into every thread.</p>
+      <br>
+      <p>"This is incredible!" she <mark>exclaim</mark>ed, gently tracing the embroidered flowers with her fingertip. Her grandmother, sitting by the window, smiled with a kind of sorrow that <mark>lie</mark>s beneath all beautiful things.</p>
+      <br>
+      <p>"I taught myself to <mark>sew</mark> during the hard years after the war," her grandmother said softly. "I saved for months to <mark>purchase</mark> that silk, working at a factory where I had to pretend I was older than I was." She reached up slowly to <mark>wipe</mark> a tear from her cheek. "But every time the other workers would <mark>cheer</mark> me on, I felt I could keep going — that one day, someone I loved would wear it."</p>
+      <br>
+      <p>Maya held the kimono to her chest and felt something shift inside her. Heritage, she realized, is not merely an object passed down through time. It is a decision — made quietly, again and again — to carry the love of those who came before you forward into the world.</p>
+    </div>
+
+    <div class="section-label">🇯🇵 日本語訳</div>
+    <div class="story-ja">
+      マヤが祖母のクローゼットの奥に眠っていた古い着物を見つけたとき、60年以上もの年月を経ても<strong>腐食</strong>せずにいる精巧な模様を<strong>じっと見つめ</strong>ずにはいられなかった。彼女はその布が、ひとつひとつの糸に織り込まれた静かな強さを<strong>持ち合わせている</strong>のではないかと<strong>不思議に思い</strong>始めた。
+      <br><br>
+      「これ、すごい！」と彼女は<strong>声を上げ</strong>、刺繍された花をそっとなでた。窓際に座っていた祖母は、美しいものすべての底に<strong>潜む</strong>ような悲しみをたたえた笑みを浮かべた。
+      <br><br>
+      「戦後の苦しい時代に、自分で<strong>縫い方</strong>を覚えたんだよ」と祖母は静かに言った。「実際より年上のふりをして工場で働き、何ヶ月も貯めてその絹を<strong>買った</strong>んだ。」彼女はゆっくりと手を上げ、頬の涙を<strong>ぬぐった</strong>。「でも周りの人たちが私を<strong>励ましてくれる</strong>たびに、続けられると感じた——いつか、大切な誰かがこれを着てくれると信じて。」
+      <br><br>
+      マヤは着物を胸に抱き、何かが自分の中で変わるのを感じた。受け継ぐものとは、単なる物ではない。それは、自分より先を生きた人々の愛を世界へ持ち続けるという、静かに、何度も繰り返される決断なのだ。
+    </div>
+  </div>
+
+  <div class="clil-box">
+    <div class="clil-title">🌿 CLIL豆知識｜縫製技術と産業革命</div>
+    <div class="clil-body">
+      19世紀、ミシンの発明は人類の歴史を大きく変えました。1846年にエライアス・ハウが実用的なミシンの特許を取得するまで、衣服はすべて手縫いで作られており、一着を仕上げるのに何週間もかかりました。産業革命により繊維産業が機械化されると、衣類の大量生産が可能となり、ファッションだけでなく世界経済の構造や女性の社会進出にも大きな影響を与えました。現代のファストファッションの起源も、この時代の「縫製の工業化」にまで遡ることができます。
+      <br><br>
+      <em>The invention of the sewing machine in the 19th century transformed not just fashion, but the global economy and the role of women in society — a reminder that even the smallest tool can reshape history.</em>
+    </div>
+  </div>
+
+  <div class="vocab-section">
+    <div class="vocab-title">📝 今日の単語まとめ（#51〜#60）</div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">51</div>
+      <div>
+        <div class="vocab-word">sew</div>
+        <div class="vocab-meaning">動）縫う、縫い合わせる</div>
+        <div class="vocab-example">She learned to sew her own clothes from scratch.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">52</div>
+      <div>
+        <div class="vocab-word">exclaim</div>
+        <div class="vocab-meaning">動）（驚きや感情で）叫ぶ、声を上げる</div>
+        <div class="vocab-example">"That's amazing!" he exclaimed with wide eyes.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">53</div>
+      <div>
+        <div class="vocab-word">stare</div>
+        <div class="vocab-meaning">動）じっと見つめる、凝視する</div>
+        <div class="vocab-example">It's impolite to stare at strangers.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">54</div>
+      <div>
+        <div class="vocab-word">decay</div>
+        <div class="vocab-meaning">動/名）腐る、腐食する；衰退（すること）</div>
+        <div class="vocab-example">The old wooden bridge had begun to decay.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">55</div>
+      <div>
+        <div class="vocab-word">possess</div>
+        <div class="vocab-meaning">動）所有する、持っている；（性質を）備えている</div>
+        <div class="vocab-example">She possesses a rare talent for leadership.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">56</div>
+      <div>
+        <div class="vocab-word">lie</div>
+        <div class="vocab-meaning">動）①横たわる ②存在する、潜む ③嘘をつく</div>
+        <div class="vocab-example">A quiet sadness lies beneath her confident smile.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">57</div>
+      <div>
+        <div class="vocab-word">cheer</div>
+        <div class="vocab-meaning">動）喝采を送る、励ます；元気づける</div>
+        <div class="vocab-example">The audience cheered loudly for the final performance.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">58</div>
+      <div>
+        <div class="vocab-word">wipe</div>
+        <div class="vocab-meaning">動）拭く、ぬぐう</div>
+        <div class="vocab-example">She wiped the tears from her face and stood up.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">59</div>
+      <div>
+        <div class="vocab-word">wonder</div>
+        <div class="vocab-meaning">動）〜かなと思う、不思議に思う；名）驚き、驚異</div>
+        <div class="vocab-example">I often wonder what my future will look like.</div>
+      </div>
+    </div>
+
+    <div class="vocab-card">
+      <div class="vocab-num">60</div>
+      <div>
+        <div class="vocab-word">purchase</div>
+        <div class="vocab-meaning">動/名）購入する；購入（品）</div>
+        <div class="vocab-example">He saved for a year to purchase his first guitar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    ユメタン１ 音読ストーリー Day 6 ｜ 次回は単語 #61〜#70
+  </div>
+
+</div>
+
+<script>
+const STORY_TEXT_PLAIN = `When Maya discovered an old kimono buried deep in her grandmother's closet, she could not help but stare at the intricate patterns that had somehow resisted decay for over sixty years. She began to wonder whether the fabric truly possessed some kind of quiet resilience — a strength woven into every thread.
+
+"This is incredible!" she exclaimed, gently tracing the embroidered flowers with her fingertip. Her grandmother, sitting by the window, smiled with a kind of sorrow that lies beneath all beautiful things.
+
+"I taught myself to sew during the hard years after the war," her grandmother said softly. "I saved for months to purchase that silk, working at a factory where I had to pretend I was older than I was." She reached up slowly to wipe a tear from her cheek. "But every time the other workers would cheer me on, I felt I could keep going — that one day, someone I loved would wear it."
+
+Maya held the kimono to her chest and felt something shift inside her. Heritage, she realized, is not merely an object passed down through time. It is a decision — made quietly, again and again — to carry the love of those who came before you forward into the world.`;
+
+let speechRate = 1.0;
+
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function playStory() {
+  if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);
+  utt.lang = 'en-US';
+  utt.rate = speechRate;
+  utt.pitch = 1.0;
+  const voices = window.speechSynthesis.getVoices();
+  const v = voices.find(x => x.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  window.speechSynthesis.speak(utt);
+}
+
+function stopStory() { window.speechSynthesis.cancel(); }
+
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+</body>
+</html>

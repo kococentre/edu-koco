@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 4</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-light: #5eead4;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --muted: #64748b;
+    --border: #ccfbf1;
+    --highlight-bg: #fef9c3;
+    --highlight-border: #fde047;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .header {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), #134e4a);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(15,118,110,0.3);
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
+  .level-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .progress-bar-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .progress-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    background: var(--border);
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    height: 100%;
+    border-radius: 10px;
+    width: 4%;
+    transition: width 1s ease;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .word-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .chip {
+    background: var(--highlight-bg);
+    border: 1.5px solid var(--highlight-border);
+    color: #92400e;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(15,118,110,0.06);
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .story-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  .story-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #1a1a1a;
+  }
+
+  mark {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--highlight-border);
+    padding: 0 2px;
+    border-radius: 3px;
+    color: #92400e;
+    font-weight: bold;
+  }
+
+  .translation-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #374151;
+  }
+
+  .clil-box {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .clil-title {
+    font-weight: bold;
+    color: var(--green);
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .clil-text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.8;
+  }
+
+  .audio-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .play-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+
+  .play-btn:hover { background: #0d6560; }
+
+  .stop-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .speed-group {
+    display: flex;
+    gap: 6px;
+  }
+
+  .speed-btn {
+    background: var(--border);
+    color: var(--primary);
+    border: 1.5px solid var(--primary-light);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+
+  .speed-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .word-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #fafffe;
+  }
+
+  .word-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .word-num {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: bold;
+  }
+
+  .word-en {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary);
+  }
+
+  .word-ja {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: bold;
+  }
+
+  .word-phrase {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">🌟 Day 4 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #31〜#40 ｜ 2026年5月11日（月）</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-label">全体進捗（1000語中 40語完了）</div>
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 4%"></div>
+  </div>
+  <div class="progress-text">4% 完了</div>
+</div>
+
+<div class="word-chips">
+  <span class="chip">incident</span>
+  <span class="chip">affair</span>
+  <span class="chip">appetite</span>
+  <span class="chip">trash</span>
+  <span class="chip">politics</span>
+  <span class="chip">count</span>
+  <span class="chip">display</span>
+  <span class="chip">taste</span>
+  <span class="chip">prepare</span>
+  <span class="chip">add</span>
+</div>
+
+<div class="audio-controls">
+  <button class="play-btn" onclick="playStory()">▶ 音声再生</button>
+  <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+  <div class="speed-group">
+    <button class="speed-btn" onclick="setSpeed(0.8, this)">遅い</button>
+    <button class="speed-btn active" onclick="setSpeed(1.0, this)">普通</button>
+    <button class="speed-btn" onclick="setSpeed(1.3, this)">速い</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="story-title">🌏 The Day Every Voice Counts</div>
+  <div class="story-text">
+    <p>An unexpected <mark>incident</mark> changed Yuki's life forever. During a school lunch break, she witnessed a classmate carelessly toss a plastic bottle on the ground — a small <mark>affair</mark> that seemed minor, but it ignited something powerful inside her. Looking around, she noticed how much <mark>trash</mark> had accumulated near the school garden. Her <mark>appetite</mark> for justice suddenly grew stronger than ever.</p>
+    <br>
+    <p>"School <mark>politics</mark> might be complicated," she told her best friend Ren, "but that doesn't mean we can't do anything." Ren nodded, encouraged by her determination.</p>
+    <br>
+    <p>Together, they decided to <mark>prepare</mark> a proposal for the student council. They wanted to <mark>add</mark> an environmental awareness campaign to the school calendar — something that would <mark>display</mark> their classmates' creativity through posters and short speeches.</p>
+    <br>
+    <p>"What we <mark>taste</mark> today — both our successes and failures — will shape who we become," Yuki wrote in her proposal introduction.</p>
+    <br>
+    <p>She reminded herself: "Every small action <mark>counts</mark>. Even picking up one piece of trash can inspire ten others to do the same."</p>
+    <br>
+    <p>When the day came to present, the room was packed. Yuki stood tall and spoke from her heart. By the end, half the student council members had raised their hands in support.</p>
+    <br>
+    <p>It wasn't just about cleaning up the school. It was about proving that young people's voices matter — and that change, however small, begins with one person who cares enough to stand up.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🇯🇵 日本語訳</div>
+  <div class="translation-text">
+    <p>予想外の出来事がユキの人生を変えた。昼休みに彼女は、クラスメートがペットボトルを無頓着に地面に投げ捨てるのを目撃した。小さな事件のように見えたが、それが彼女の中に強い思いを燃え上がらせた。周りを見回すと、学校の庭の近くにごみが山積みになっているのに気づいた。正義への欲求が、かつてないほど強くなった。</p>
+    <br>
+    <p>「学校の政治は複雑かもしれない」と彼女は親友のレンに話した。「でも、私たちに何もできないわけじゃない」。レンは彼女の決意に励まされ、うなずいた。</p>
+    <br>
+    <p>二人は生徒会に提案書を準備することにした。環境意識向上キャンペーンを学校行事に加えたかった——ポスターや短いスピーチでクラスメートの創造力を発揮できるような取り組みを。</p>
+    <br>
+    <p>「今日経験すること——成功も失敗も——が、私たちがどんな人間になるかを決める」と、ユキは提案書の冒頭に書いた。</p>
+    <br>
+    <p>彼女は自分に言い聞かせた。「一つひとつの小さな行動が大切だ。ゴミを一つ拾うだけで、他の十人が同じことをするきっかけになるかもしれない」</p>
+    <br>
+    <p>発表当日、部屋は満員だった。ユキは背筋を伸ばし、心を込めて語った。終わる頃には、生徒会の半数が賛成の手を挙げていた。</p>
+    <br>
+    <p>それは単に学校をきれいにするだけの話ではなかった。若者の声が重要であること、そして変化は——たとえどんなに小さくても——立ち上がる勇気を持つ一人の人間から始まることを証明することだった。</p>
+  </div>
+</div>
+
+<div class="clil-box">
+  <div class="clil-title">🔬 CLIL豆知識：割れ窓理論（Broken Windows Theory）</div>
+  <div class="clil-text">
+    アメリカの犯罪学者ウィルソンとケリングが1982年に提唱した「割れ窓理論」によると、建物の割れた窓を放置すると、やがてさらに多くの窓が割られ、地域全体の荒廃につながるとされています。これはゴミ問題にも当てはまり、「ゴミが捨てられた場所にはさらにゴミが集まりやすい」ことが研究でも示されています。小さな環境の乱れが大きな問題に発展する前に、一人ひとりの行動が環境全体を守る力になるのです。（In English: The "Broken Windows Theory" suggests that visible signs of disorder, if left unaddressed, invite further disorder — a concept directly relevant to litter and environmental care.）
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📖 今日の単語まとめ</div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#31</span>
+      <span class="word-en">incident</span>
+    </div>
+    <div class="word-ja">出来事、事件</div>
+    <div class="word-phrase">an unexpected incident / a traffic incident</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#32</span>
+      <span class="word-en">affair</span>
+    </div>
+    <div class="word-ja">事件、事柄、問題</div>
+    <div class="word-phrase">a minor affair / a complicated affair</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#33</span>
+      <span class="word-en">appetite</span>
+    </div>
+    <div class="word-ja">食欲、（物事への）欲求</div>
+    <div class="word-phrase">an appetite for justice / lose one's appetite</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#34</span>
+      <span class="word-en">trash</span>
+    </div>
+    <div class="word-ja">ゴミ、廃棄する</div>
+    <div class="word-phrase">pick up trash / a trash can</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#35</span>
+      <span class="word-en">politics</span>
+    </div>
+    <div class="word-ja">政治、政治活動</div>
+    <div class="word-phrase">school politics / get involved in politics</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#36</span>
+      <span class="word-en">count</span>
+    </div>
+    <div class="word-ja">数える、重要である、数</div>
+    <div class="word-phrase">every action counts / count on someone</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#37</span>
+      <span class="word-en">display</span>
+    </div>
+    <div class="word-ja">表示する、展示、示す</div>
+    <div class="word-phrase">display creativity / on display</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#38</span>
+      <span class="word-en">taste</span>
+    </div>
+    <div class="word-ja">味、経験する、趣味</div>
+    <div class="word-phrase">taste success / a taste of freedom</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#39</span>
+      <span class="word-en">prepare</span>
+    </div>
+    <div class="word-ja">準備する</div>
+    <div class="word-phrase">prepare a proposal / well-prepared</div>
+  </div>
+
+  <div class="word-card">
+    <div class="word-card-header">
+      <span class="word-num">#40</span>
+      <span class="word-en">add</span>
+    </div>
+    <div class="word-ja">加える、追加する</div>
+    <div class="word-phrase">add a campaign / add up to something</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  ユメタン１ 音読ストーリー Day 4 ｜ 次回は単語 #41〜#50
+</div>
+
+<script>
+const STORY_TEXT_PLAIN = `The Day Every Voice Counts.
+
+An unexpected incident changed Yuki's life forever. During a school lunch break, she witnessed a classmate carelessly toss a plastic bottle on the ground — a small affair that seemed minor, but it ignited something powerful inside her. Looking around, she noticed how much trash had accumulated near the school garden. Her appetite for justice suddenly grew stronger than ever.
+
+School politics might be complicated, she told her best friend Ren, but that doesn't mean we can't do anything. Ren nodded, encouraged by her determination.
+
+Together, they decided to prepare a proposal for the student council. They wanted to add an environmental awareness campaign to the school calendar — something that would display their classmates' creativity through posters and short speeches.
+
+What we taste today — both our successes and failures — will shape who we become, Yuki wrote in her proposal introduction.
+
+She reminded herself: Every small action counts. Even picking up one piece of trash can inspire ten others to do the same.
+
+When the day came to present, the room was packed. Yuki stood tall and spoke from her heart. By the end, half the student council members had raised their hands in support.
+
+It wasn't just about cleaning up the school. It was about proving that young people's voices matter — and that change, however small, begins with one person who cares enough to stand up.`;
+
+let speechRate = 1.0;
+
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function playStory() {
+  if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);
+  utt.lang = 'en-US';
+  utt.rate = speechRate;
+  utt.pitch = 1.0;
+  const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  window.speechSynthesis.speak(utt);
+}
+
+function stopStory() {
+  window.speechSynthesis.cancel();
+}
+
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+
+</body>
+</html>

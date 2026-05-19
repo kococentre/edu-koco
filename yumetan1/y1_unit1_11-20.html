@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ユメタン１ 音読ストーリー Day 2</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-light: #5eead4;
+    --accent: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --muted: #64748b;
+    --border: #ccfbf1;
+    --highlight-bg: #fef9c3;
+    --highlight-border: #fde047;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 16px;
+    line-height: 1.7;
+  }
+
+  .header {
+    text-align: center;
+    padding: 24px 16px 16px;
+    background: linear-gradient(135deg, #0f766e, #0d9488);
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
+  .level-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    border-radius: 12px;
+    padding: 3px 14px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .progress-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    background: var(--border);
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    height: 100%;
+    border-radius: 10px;
+    width: 2%;
+  }
+
+  .word-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .chip {
+    background: var(--highlight-bg);
+    border: 1.5px solid var(--highlight-border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #92400e;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .story-title {
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .story-en {
+    font-size: 1rem;
+    line-height: 2.0;
+    margin-bottom: 16px;
+  }
+
+  .story-en mark {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--accent);
+    border-radius: 3px;
+    padding: 0 2px;
+    font-weight: bold;
+  }
+
+  .story-ja {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.85;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  .audio-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .play-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+  }
+
+  .stop-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .speed-controls {
+    display: flex;
+    gap: 4px;
+  }
+
+  .speed-btn {
+    background: var(--border);
+    color: var(--text);
+    border: none;
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .speed-btn.active {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+  }
+
+  .clil-box {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .clil-title {
+    font-weight: bold;
+    color: var(--green);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  .clil-text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  .word-cards {
+    display: grid;
+    gap: 10px;
+  }
+
+  .word-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+
+  .word-num {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .word-head {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+
+  .word-meaning {
+    font-size: 0.88rem;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .word-phrase {
+    font-size: 0.82rem;
+    color: var(--muted);
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 4px 10px;
+    display: inline-block;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding: 20px 0 8px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">🌟 Day 2 / 100</div>
+  <h1>ユメタン１ 音読ストーリー</h1>
+  <div class="subtitle">単語 #11〜#20 ｜ 2026年5月8日（金）</div>
+  <div class="level-tag">📘 高校生レベル / 英検2級〜準1級</div>
+</div>
+
+<div class="progress-section">
+  <div class="progress-label">
+    <span>📈 学習進捗</span>
+    <span>20 / 1000 語（2%）</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+</div>
+
+<div class="word-chips">
+  <span class="chip">surrender</span>
+  <span class="chip">profession</span>
+  <span class="chip">architecture</span>
+  <span class="chip">condition</span>
+  <span class="chip">habit</span>
+  <span class="chip">trouble</span>
+  <span class="chip">funeral</span>
+  <span class="chip">dialogue</span>
+  <span class="chip">shortage</span>
+  <span class="chip">stuff</span>
+</div>
+
+<div class="card">
+  <div class="card-title">🎙️ 音声再生</div>
+  <div class="audio-controls">
+    <button class="play-btn" onclick="playStory()">▶ 再生</button>
+    <button class="stop-btn" onclick="stopStory()">■ 停止</button>
+    <div class="speed-controls">
+      <button class="speed-btn" onclick="setSpeed(0.75, this)">0.75x</button>
+      <button class="speed-btn active" onclick="setSpeed(1.0, this)">1.0x</button>
+      <button class="speed-btn" onclick="setSpeed(1.25, this)">1.25x</button>
+      <button class="speed-btn" onclick="setSpeed(1.5, this)">1.5x</button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="story-title">🕊️ The Last Dialogue</div>
+  <div class="story-en">
+    The <mark>funeral</mark> was held in a small chapel whose <mark>architecture</mark> spoke of another era — high stone arches and stained glass that filtered the morning light into something almost holy. Kenji stood near the back, the only student in a room full of adults who had dedicated their lives to a single <mark>profession</mark>.
+    <br><br>
+    Dr. Hayashi had been his teacher, his mentor, and the one person who had consistently challenged his <mark>habit</mark> of giving up whenever <mark>trouble</mark> arose. The <mark>shortage</mark> of such individuals in the world was something Kenji had never truly felt until now, standing in silence among strangers who wept openly.
+    <br><br>
+    He thought about their last <mark>dialogue</mark> — a quiet afternoon conversation about what kind of <mark>stuff</mark> truly matters in a life. "Don't <mark>surrender</mark> to fear," Dr. Hayashi had told him, voice steady and warm. "The world is in a difficult <mark>condition</mark>, but that is precisely why young people with passion are needed."
+    <br><br>
+    Kenji had been in real <mark>trouble</mark> that week — arguing with teachers, skipping practice, losing all direction. But standing here now, surrounded by the weight of what one dedicated life had meant to so many, something shifted inside him.
+    <br><br>
+    He would not waste the time he had been given.
+  </div>
+
+  <div class="story-ja">
+    <strong>【日本語訳】</strong><br>
+    葬式は小さな礼拝堂で執り行われた。その建築様式はまるで別の時代を語りかけるようで、高い石のアーチとステンドグラスが朝の光をほとんど神聖なものへと変えていた。ケンジは部屋の後方に立っていた。そこにいる唯一の学生として、一つの職業に人生を捧げた大人たちに囲まれながら。
+    <br><br>
+    ハヤシ先生は彼の恩師であり、困難が生じるたびに諦めてしまうというケンジの習慣に、いつも真正面から向き合ってくれた人だった。このような人物が世界にいかに少ないか——それをケンジは今この瞬間、見知らぬ人々が声を上げて泣く中に静かに立ちながら、初めて本当の意味で実感した。
+    <br><br>
+    彼はふと、二人の最後の対話を思い出した。人生において本当に大切なものは何か、ある静かな午後に交わした会話だ。「恐れに屈してはいけない」とハヤシ先生は穏やかで確かな声で言った。「世界は今、難しい状況にある。だからこそ、情熱を持つ若者が必要なんだ」。
+    <br><br>
+    ケンジはその週、本当に追い詰められていた——教師と言い争い、練習をさぼり、目標を完全に見失っていた。しかし今この場所で、一人の人間の献身的な人生が多くの人々に何を意味してきたかという重みに包まれながら、何かが彼の中で変わった。
+    <br><br>
+    与えられた時間を無駄にはしない。
+  </div>
+</div>
+
+<div class="clil-box">
+  <div class="clil-title">🌿 CLIL豆知識：ゴシック建築と「畏敬」の心理学</div>
+  <div class="clil-text">
+    ストーリーに登場するような高い石のアーチを持つゴシック建築（12〜16世紀のヨーロッパ）は、美しさだけでなく<strong>人の感情を科学的に設計</strong>していました。高い天井と縦に伸びるアーチは「畏敬（awe）」の感覚を生み出します。心理学者のダッチャー・ケルトナーの研究によれば、畏敬の念を感じると人は自己中心的思考が弱まり、他者への共感や思いやりが高まることが分かっています。建築とは、空間を通じて人の心に働きかける、もっとも古い感情デザインかもしれません。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📚 単語まとめカード</div>
+  <div class="word-cards">
+    <div class="word-card">
+      <div class="word-num">#11</div>
+      <div class="word-head">surrender</div>
+      <div class="word-meaning">🇯🇵 降参する、屈服する ／ 降伏（名詞）</div>
+      <div class="word-phrase">surrender to fear（恐れに屈する）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#12</div>
+      <div class="word-head">profession</div>
+      <div class="word-meaning">🇯🇵 （専門的な）職業、専門職</div>
+      <div class="word-phrase">choose a profession（職業を選ぶ）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#13</div>
+      <div class="word-head">architecture</div>
+      <div class="word-meaning">🇯🇵 建築、建築様式、建築学</div>
+      <div class="word-phrase">Gothic architecture（ゴシック建築）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#14</div>
+      <div class="word-head">condition</div>
+      <div class="word-meaning">🇯🇵 状態、条件、環境</div>
+      <div class="word-phrase">in a difficult condition（難しい状況に）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#15</div>
+      <div class="word-head">habit</div>
+      <div class="word-meaning">🇯🇵 習慣、癖</div>
+      <div class="word-phrase">a habit of giving up（諦めグセ）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#16</div>
+      <div class="word-head">trouble</div>
+      <div class="word-meaning">🇯🇵 問題、困難、苦労、トラブル</div>
+      <div class="word-phrase">be in trouble（困っている）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#17</div>
+      <div class="word-head">funeral</div>
+      <div class="word-meaning">🇯🇵 葬式、告別式</div>
+      <div class="word-phrase">attend a funeral（葬式に参列する）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#18</div>
+      <div class="word-head">dialogue</div>
+      <div class="word-meaning">🇯🇵 対話、会話、対談</div>
+      <div class="word-phrase">an open dialogue（率直な対話）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#19</div>
+      <div class="word-head">shortage</div>
+      <div class="word-meaning">🇯🇵 不足、欠乏</div>
+      <div class="word-phrase">a shortage of teachers（教師不足）</div>
+    </div>
+    <div class="word-card">
+      <div class="word-num">#20</div>
+      <div class="word-head">stuff</div>
+      <div class="word-meaning">🇯🇵 もの、こと、材料（口語的）</div>
+      <div class="word-phrase">the stuff that matters（大切なこと）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  ユメタン１ 音読ストーリー Day 2 ｜ 次回は単語 #21〜#30
+</div>
+
+<script>
+const STORY_TEXT_PLAIN = `The funeral was held in a small chapel whose architecture spoke of another era — high stone arches and stained glass that filtered the morning light into something almost holy. Kenji stood near the back, the only student in a room full of adults who had dedicated their lives to a single profession.
+
+Dr. Hayashi had been his teacher, his mentor, and the one person who had consistently challenged his habit of giving up whenever trouble arose. The shortage of such individuals in the world was something Kenji had never truly felt until now, standing in silence among strangers who wept openly.
+
+He thought about their last dialogue — a quiet afternoon conversation about what kind of stuff truly matters in a life. Don't surrender to fear, Dr. Hayashi had told him, voice steady and warm. The world is in a difficult condition, but that is precisely why young people with passion are needed.
+
+Kenji had been in real trouble that week — arguing with teachers, skipping practice, losing all direction. But standing here now, surrounded by the weight of what one dedicated life had meant to so many, something shifted inside him.
+
+He would not waste the time he had been given.`;
+
+let speechRate = 1.0;
+
+function setSpeed(rate, btn) {
+  speechRate = rate;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function playStory() {
+  if (!('speechSynthesis' in window)) { alert('音声未対応のブラウザです'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);
+  utt.lang = 'en-US';
+  utt.rate = speechRate;
+  utt.pitch = 1.0;
+  const v = window.speechSynthesis.getVoices().find(x => x.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  window.speechSynthesis.speak(utt);
+}
+
+function stopStory() {
+  window.speechSynthesis.cancel();
+}
+
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+
+</body>
+</html>
