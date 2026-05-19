@@ -1,7 +1,286 @@
-<h1>ユメタン１</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ユメタン１ | Edu Koco</title>
 
-<p>音読トレーニング教材</p>
+  <style>
+    * { box-sizing: border-box; }
 
-<ul>
-  <li><a href="Y1_Uni1_1-10.html">Unit1（1〜10）</a></li>
-</ul>
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+      background: #fff8e8;
+      color: #5a3b1e;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #fff1bd 0%, #fffaf0 45%, #fff3cf 100%);
+      border-left: 10px solid #ffc33d;
+      border-right: 10px solid #ffc33d;
+      padding: 28px 20px 50px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .nav a {
+      background: #fffdf5;
+      color: #7a4a1e;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 30px 16px 34px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ff8c24;
+      color: white;
+      padding: 8px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 9vw, 88px);
+      color: #5fa832;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #6b421f;
+    }
+
+    .message {
+      max-width: 780px;
+      margin: 28px auto 40px;
+      background: rgba(255,255,255,0.86);
+      border: 3px dashed #ffc76c;
+      border-radius: 26px;
+      padding: 26px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.9;
+      box-shadow: 0 8px 20px rgba(128,82,25,0.08);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 900;
+      color: #7a4a1e;
+      margin: 36px 0 22px;
+    }
+
+    .lesson-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .lesson-card {
+      display: block;
+      background: #fffdf7;
+      border: 3px solid #ffe0a3;
+      border-radius: 26px;
+      padding: 24px;
+      text-decoration: none;
+      color: #5a3b1e;
+      box-shadow: 0 8px 20px rgba(128,82,25,0.11);
+      transition: 0.2s;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(128,82,25,0.16);
+    }
+
+    .lesson-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .lesson-label {
+      display: inline-block;
+      background: #ff8aa8;
+      color: white;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .lesson-title {
+      font-size: 30px;
+      font-weight: 900;
+      color: #5fa832;
+      margin: 12px 0 8px;
+    }
+
+    .lesson-text {
+      font-size: 17px;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .start {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(135deg, #ff9f2e, #f06d12);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 900;
+      box-shadow: 0 8px 14px rgba(240,109,18,0.25);
+    }
+
+    .features {
+      max-width: 760px;
+      margin: 32px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.75);
+      border: 2px solid #ffe0a3;
+      border-radius: 20px;
+      padding: 18px 10px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .feature .emoji {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 46px;
+      color: #7b6f5d;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        border-left: 5px solid #ffc33d;
+        border-right: 5px solid #ffc33d;
+        padding: 20px 14px 40px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+
+      .lesson-title {
+        font-size: 25px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <a href="../">🏠 Edu Koco</a>
+      <a href="#lessons">📖 レッスン一覧</a>
+    </nav>
+
+    <section class="hero">
+      <div class="badge">音読トレーニング</div>
+      <h1>ユメタン１</h1>
+      <div class="subtitle">10単語ずつ、ストーリーで覚える英語音読教材</div>
+    </section>
+
+    <section class="message">
+      <strong>今日の10語を、ストーリーの中で声に出して読んでみよう。</strong><br>
+      単語だけで覚えるのではなく、文の流れ・場面・気持ちと一緒に覚えることで、
+      英語が少しずつ「自分の言葉」になっていきます。
+    </section>
+
+    <section id="lessons">
+      <div class="section-title">🌱 レッスン一覧 🌱</div>
+
+      <div class="lesson-list">
+
+        <a class="lesson-card" href="Y1_Uni1_1-10.html">
+          <div class="lesson-top">
+            <span class="lesson-label">Unit 1</span>
+            <span>🌟 1〜10</span>
+          </div>
+
+          <div class="lesson-title">Unit1（1〜10）</div>
+
+          <div class="lesson-text">
+            今日の10語を使った音読ストーリーです。<br>
+            まずはゆっくり、次にふつうの速さで読んでみよう。
+          </div>
+
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <span class="emoji">👀</span>
+        見て読む
+      </div>
+
+      <div class="feature">
+        <span class="emoji">🎧</span>
+        聞いてまねる
+      </div>
+
+      <div class="feature">
+        <span class="emoji">🗣️</span>
+        声に出す
+      </div>
+    </section>
+
+    <footer>
+      Edu Koco / KID’S ENGLISH
+    </footer>
+
+  </div>
+</body>
+</html>
