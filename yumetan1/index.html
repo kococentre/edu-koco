@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ユメタン１ | Edu Koco</title>
+  <title>ユメタン1 Unit 1 | Edu Koco</title>
 
   <style>
     * { box-sizing: border-box; }
@@ -16,13 +16,13 @@
     }
 
     .page {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto;
       min-height: 100vh;
-      background: linear-gradient(180deg, #fff1bd 0%, #fffaf0 45%, #fff3cf 100%);
+      background: linear-gradient(180deg, #fff1bd 0%, #fffaf0 48%, #fff3cf 100%);
       border-left: 10px solid #ffc33d;
       border-right: 10px solid #ffc33d;
-      padding: 28px 20px 50px;
+      padding: 28px 20px 54px;
     }
 
     .nav {
@@ -45,7 +45,7 @@
 
     .hero {
       text-align: center;
-      padding: 30px 16px 34px;
+      padding: 28px 16px 30px;
     }
 
     .badge {
@@ -59,7 +59,7 @@
     }
 
     h1 {
-      font-size: clamp(48px, 9vw, 88px);
+      font-size: clamp(44px, 8vw, 82px);
       color: #5fa832;
       margin: 0;
       line-height: 1.1;
@@ -73,8 +73,8 @@
     }
 
     .message {
-      max-width: 780px;
-      margin: 28px auto 40px;
+      max-width: 820px;
+      margin: 28px auto 38px;
       background: rgba(255,255,255,0.86);
       border: 3px dashed #ffc76c;
       border-radius: 26px;
@@ -85,6 +85,17 @@
       box-shadow: 0 8px 20px rgba(128,82,25,0.08);
     }
 
+    .unit-complete {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid #ffd28a;
+      color: #e86d19;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-top: 14px;
+    }
+
     .section-title {
       text-align: center;
       font-size: 32px;
@@ -93,10 +104,11 @@
       margin: 36px 0 22px;
     }
 
-    .lesson-list {
-      max-width: 760px;
+    .lesson-grid {
+      max-width: 880px;
       margin: 0 auto;
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -105,7 +117,7 @@
       background: #fffdf7;
       border: 3px solid #ffe0a3;
       border-radius: 26px;
-      padding: 24px;
+      padding: 22px;
       text-decoration: none;
       color: #5a3b1e;
       box-shadow: 0 8px 20px rgba(128,82,25,0.11);
@@ -117,14 +129,6 @@
       box-shadow: 0 12px 26px rgba(128,82,25,0.16);
     }
 
-    .lesson-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
     .lesson-label {
       display: inline-block;
       background: #ff8aa8;
@@ -133,35 +137,53 @@
       border-radius: 999px;
       font-weight: 900;
       font-size: 14px;
+      margin-bottom: 10px;
     }
 
     .lesson-title {
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 900;
       color: #5fa832;
-      margin: 12px 0 8px;
+      margin-bottom: 8px;
     }
 
     .lesson-text {
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.7;
       font-weight: 700;
     }
 
     .start {
       display: inline-block;
-      margin-top: 16px;
+      margin-top: 14px;
       background: linear-gradient(135deg, #ff9f2e, #f06d12);
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 999px;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 900;
-      box-shadow: 0 8px 14px rgba(240,109,18,0.25);
+      box-shadow: 0 8px 14px rgba(240,109,18,0.22);
+    }
+
+    .complete-box {
+      max-width: 820px;
+      margin: 34px auto 0;
+      background: #fffdf7;
+      border: 3px solid #ffe0a3;
+      border-radius: 26px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(128,82,25,0.1);
+    }
+
+    .complete-box h2 {
+      color: #e86d19;
+      margin: 0 0 10px;
+      font-size: 28px;
     }
 
     .features {
-      max-width: 760px;
+      max-width: 820px;
       margin: 32px auto 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -190,7 +212,7 @@
       font-weight: 700;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       .page {
         border-left: 5px solid #ffc33d;
         border-right: 5px solid #ffc33d;
@@ -205,8 +227,12 @@
         font-size: 16px;
       }
 
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+
       .lesson-title {
-        font-size: 25px;
+        font-size: 24px;
       }
 
       .features {
@@ -221,43 +247,106 @@
 
     <nav class="nav">
       <a href="../">🏠 Edu Koco</a>
-      <a href="#lessons">📖 レッスン一覧</a>
+      <a href="#lessons">📖 Unit 1</a>
     </nav>
 
     <section class="hero">
       <div class="badge">音読トレーニング</div>
       <h1>ユメタン１</h1>
-      <div class="subtitle">10単語ずつ、ストーリーで覚える英語音読教材</div>
+      <div class="subtitle">Unit 1 完結ページ</div>
+      <div class="unit-complete">🌱 10語ずつ × 10レッスン</div>
     </section>
 
     <section class="message">
-      <strong>今日の10語を、ストーリーの中で声に出して読んでみよう。</strong><br>
+      <strong>Unit 1 の100語を、ストーリーの中で声に出して読んでみよう。</strong><br>
       単語だけで覚えるのではなく、文の流れ・場面・気持ちと一緒に覚えることで、
       英語が少しずつ「自分の言葉」になっていきます。
     </section>
 
     <section id="lessons">
-      <div class="section-title">🌱 レッスン一覧 🌱</div>
+      <div class="section-title">🌿 Unit 1 レッスン一覧 🌿</div>
 
-      <div class="lesson-list">
+      <div class="lesson-grid">
 
-        <a class="lesson-card" href="Y1_Uni1_1-10.html">
-          <div class="lesson-top">
-            <span class="lesson-label">Unit 1</span>
-            <span>🌟 1〜10</span>
-          </div>
+        <a class="lesson-card" href="y1_uni1_1-10.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">1〜10</div>
+          <div class="lesson-text">最初の10語をストーリーで音読。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
 
-          <div class="lesson-title">Unit1（1〜10）</div>
+        <a class="lesson-card" href="y1_unit1_11-20.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">11〜20</div>
+          <div class="lesson-text">次の10語で音読を積み重ねよう。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
 
-          <div class="lesson-text">
-            今日の10語を使った音読ストーリーです。<br>
-            まずはゆっくり、次にふつうの速さで読んでみよう。
-          </div>
+        <a class="lesson-card" href="y1_unit1_21-30.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">21〜30</div>
+          <div class="lesson-text">声に出すことで英語の流れをつかもう。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
 
+        <a class="lesson-card" href="y1_unit1_31-40.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">31〜40</div>
+          <div class="lesson-text">意味と場面をつなげて読んでみよう。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_Unit1_41-50.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">41〜50</div>
+          <div class="lesson-text">Unit 1 の折り返し地点です。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_Unit1_51-60.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">51〜60</div>
+          <div class="lesson-text">リズムよく音読して定着へ。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_unit1_61-70.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">61〜70</div>
+          <div class="lesson-text">ストーリーの中で語彙を使える力へ。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_Unit1_71-80.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">71〜80</div>
+          <div class="lesson-text">聞いて、読んで、もう一度声に出そう。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_Unit1_81-90.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">81〜90</div>
+          <div class="lesson-text">Unit 1 完走までもう少し。</div>
+          <span class="start">学習をはじめる ＞</span>
+        </a>
+
+        <a class="lesson-card" href="y1_Unit1_91-100.html">
+          <span class="lesson-label">Unit 1</span>
+          <div class="lesson-title">91〜100</div>
+          <div class="lesson-text">Unit 1 ラスト10語。完走しよう！</div>
           <span class="start">学習をはじめる ＞</span>
         </a>
 
       </div>
+    </section>
+
+    <section class="complete-box">
+      <h2>🎉 Unit 1 完結！</h2>
+      <p>
+        10語ずつ、100語分の音読トレーニング。<br>
+        小さな積み重ねが、大きな英語力になります。
+      </p>
     </section>
 
     <section class="features">
