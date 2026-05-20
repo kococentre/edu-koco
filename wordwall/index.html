@@ -1,110 +1,179 @@
-<style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wordwall Library</title>
 
-body{
-  font-family:sans-serif;
-  background:#fff8ef;
-  padding:30px;
-  color:#444;
-}
+  <style>
+    body {
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
 
-h2{
-  color:#ff8c42;
-  margin-bottom:30px;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
 
-.unit-box{
-  background:#fffaf0;
-  border-radius:20px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #2d4c6b;
+    }
 
-.unit-box h3{
-  color:#6cbf43;
-  margin-bottom:15px;
-}
+    .section {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
 
-.lesson-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
+    details {
+      margin-bottom: 12px;
+    }
 
-.lesson-list a{
-  text-decoration:none;
-  background:#fff;
-  padding:14px 18px;
-  border-radius:12px;
-  color:#444;
-  font-weight:bold;
-  transition:0.2s;
-  border:2px solid #ffe0b2;
-}
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: bold;
+      padding: 14px 18px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
 
-.lesson-list a:hover{
-  background:#fff3d6;
-  transform:translateX(5px);
-}
+    summary:hover {
+      background: #eef5fb;
+    }
 
-</style>
+    .yumetan0 > summary {
+      background: #d8ecff;
+      color: #1c4c75;
+      font-size: 1.2rem;
+    }
 
-<h2>🎮 Wordwall Games</h2>
+    .yumetan1 > summary {
+      background: #ffe4d6;
+      color: #8a4b2a;
+      font-size: 1.2rem;
+    }
 
-<div class="unit-box">
+    .unit > summary {
+      background: #f7f7f7;
+      margin-left: 15px;
+      font-size: 1rem;
+    }
 
-  <h3>📘 ユメタン1</h3>
+    ul {
+      list-style: none;
+      padding-left: 45px;
+      margin-top: 10px;
+    }
 
-  <div class="lesson-list">
+    li {
+      margin-bottom: 10px;
+    }
 
-    <a href="https://wordwall.net/ja/resource/73194928" target="_blank">
-      Unit1　1-10
-    </a>
+    a {
+      text-decoration: none;
+      color: #333;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: inline-block;
+      transition: 0.2s;
+      border: 1px solid #ddd;
+    }
 
-    <a href="https://wordwall.net/ja/resource/93571856" target="_blank">
-      Unit1　11-20
-    </a>
+    a:hover {
+      background: #2d4c6b;
+      color: white;
+      transform: translateY(-2px);
+    }
 
-      <a href="https://wordwall.net/ja/resource/93572175"
-     target="_blank">
-      Unit1　21-30
-    </a>
+    .emoji {
+      margin-right: 8px;
+    }
 
-      <a href="https://wordwall.net/ja/resource/93572248"
-     target="_blank">
-      Unit1　31-40
-    </a>
+  </style>
+</head>
 
-      <a href="https://wordwall.net/ja/resource/93572435"
-     target="_blank">
-      Unit1　41-50
-    </a>
+<body>
 
-     <a href="https://wordwall.net/ja/resource/111378615"
-     target="_blank">
-      Unit1　51-60
-    </a>
+<div class="container">
 
-     <a href="https://wordwall.net/ja/resource/111378700"
-     target="_blank">
-      Unit1　61-70
-    </a>
+  <h1>🌟 Wordwall Library 🌟</h1>
 
-       <a href="https://wordwall.net/ja/resource/93662824"
-     target="_blank">
-      Unit1　71-80
-    </a>
+  <!-- ユメタン0 -->
+  <div class="section">
 
-   <a href="https://wordwall.net/ja/resource/93662644"
-     target="_blank">
-      Unit1　81-90
-    </a>
+    <details class="yumetan0" open>
+      <summary>📘 ユメタン0</summary>
 
-      <a href="https://wordwall.net/ja/resource/93664126"
-     target="_blank">
-      Unit1　91-100
-    </a>
-    
+      <!-- Unit1 -->
+      <details class="unit">
+        <summary>Unit1</summary>
+
+        <ul>
+          <li><a href="#">1-10</a></li>
+          <li><a href="#">11-20</a></li>
+          <li><a href="#">21-30</a></li>
+          <li><a href="#">31-40</a></li>
+        </ul>
+      </details>
+
+      <!-- Unit2 -->
+      <details class="unit">
+        <summary>Unit2</summary>
+
+        <ul>
+          <li><a href="#">101-110</a></li>
+          <li><a href="#">111-120</a></li>
+        </ul>
+      </details>
+
+    </details>
+
+  </div>
+
+  <!-- ユメタン1 -->
+  <div class="section">
+
+    <details class="yumetan1" open>
+      <summary>📕 ユメタン1</summary>
+
+      <!-- Unit1 -->
+      <details class="unit">
+        <summary>Unit1</summary>
+
+        <ul>
+          <li><a href="#">1-10</a></li>
+          <li><a href="#">11-20</a></li>
+          <li><a href="#">21-30</a></li>
+          <li><a href="#">31-40</a></li>
+        </ul>
+      </details>
+
+      <!-- Unit2 -->
+      <details class="unit">
+        <summary>Unit2</summary>
+
+        <ul>
+          <li><a href="#">101-110</a></li>
+          <li><a href="#">111-120</a></li>
+        </ul>
+      </details>
+
+    </details>
+
   </div>
 
 </div>
+
+</body>
+</html>
