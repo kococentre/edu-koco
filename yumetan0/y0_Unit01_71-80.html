@@ -16,6 +16,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .sec-title{font-size:14px;font-weight:700;color:var(--p);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--hbg);border:2px solid var(--hb);border-radius:20px;padding:5px 14px;font-size:14px;font-weight:700;color:#78350f}
+.level-badge{display:inline-block;background:#e0e7ff;color:#3730a3;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
 .prog-label{display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600}
 .prog-out{background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden}
 .prog-in{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--pl))}
@@ -28,9 +29,9 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .play-row{display:flex;gap:10px}
 .btn-play{background:var(--p);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:1}
 .btn-stop{background:#e2e8f0;color:#475569;border:none;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
-.en{font-size:16px;line-height:1.9;color:#1e293b;margin-bottom:16px}
+.en{font-size:16px;line-height:2.1;color:#1e293b;margin-bottom:16px}
 .en mark{background:var(--hbg);border-bottom:2px solid var(--hb);border-radius:3px;padding:1px 3px;font-weight:700;color:#78350f}
-.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.8;color:#475569}
+.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.9;color:#475569}
 .ja h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px}
 .clil{border:2px solid var(--g);border-radius:12px;padding:16px 18px;margin-bottom:16px;background:#fff;box-shadow:0 2px 8px rgba(16,185,129,.1)}
 .clil h2{font-size:14px;font-weight:700;color:var(--g);margin-bottom:10px}
@@ -39,7 +40,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .wcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px}
 .wnum{background:var(--p);color:#fff;border-radius:6px;font-size:11px;font-weight:800;padding:3px 7px;white-space:nowrap;margin-top:2px}
 .winfo{flex:1}
-.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:3px}
+.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:2px}
+.wipa{font-size:13px;color:#6366f1;font-style:italic;margin-bottom:3px}
 .wja{font-size:13px;color:#64748b;margin-bottom:5px}
 .wph{font-size:13px;background:var(--hbg);border-radius:6px;padding:4px 10px;color:#78350f;display:inline-block;font-style:italic}
 .footer{text-align:center;font-size:12px;color:#94a3b8;padding-bottom:20px;line-height:1.7}</style>
@@ -49,18 +51,19 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 <div class="hdr">
   <div class="badge">📘 Unit01 / 08</div>
   <h1>ユメタン０ 音読ストーリー</h1>
-  <div class="sub">単語 #71〜#80 ｜ 2026年5月20日（水）</div>
+  <div class="sub">単語 #71〜#80 ｜ 2026年5月21日（木）</div>
 </div>
 <div class="box">
-  <div class="prog-label"><span>📊 全体進捗</span><span>80 / 800語 (10.0%)</span></div>
-  <div class="prog-out"><div class="prog-in" style="width:10.0%"></div></div>
+  <div class="level-badge">📊 英検5級レベル ｜ 過去形・形容詞・感嘆文</div>
+  <div class="prog-label"><span>📈 全体進捗</span><span>80 / 800語 (10.00%)</span></div>
+  <div class="prog-out"><div class="prog-in" style="width:10.00%"></div></div>
 </div>
 <div class="box">
   <div class="sec-title">✨ 今日の10単語 — 🦕 恐竜・古代生物</div>
   <div class="chips"><span class="chip">all</span><span class="chip">big</span><span class="chip">good</span><span class="chip">old</span><span class="chip">many</span><span class="chip">sad</span><span class="chip">long</span><span class="chip">some</span><span class="chip">cold</span><span class="chip">high</span></div>
 </div>
 <div class="box">
-  <div class="story-title">🦕 The Secret of the Cold Mountain</div>
+  <div class="story-title">🦕 The Old Bone</div>
   <div class="player">
     <div class="speed-row">
       <span class="speed-label">速さ：</span>
@@ -74,42 +77,44 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
     </div>
   </div>
   <div class="en">
-    <p>It was a <mark>long</mark>, hard climb up the <mark>high</mark>, frozen mountain.</p>
-    <p>The air was <mark>cold</mark>, and <mark>many</mark> of the team wanted to give up.</p>
-    <p>"<mark>All</mark> this work... for nothing?" <mark>some</mark> of them muttered.</p>
-    <p>Then the oldest scientist, Dr. Tanaka, stopped suddenly.</p>
-    <p>"Look at this <mark>old</mark> rock," she said in a quiet voice.</p>
-    <p>Part of the stone had cracked open.</p>
-    <p>Inside was something <mark>big</mark>. Something impossible.</p>
-    <p>A perfectly preserved fossil — a <mark>long</mark>, enormous bone.</p>
-    <p><mark>Some</mark> team members cheered. Others felt <mark>sad</mark>.</p>
-    <p>"This creature died alone up here in the <mark>cold</mark>," said Dr. Tanaka.</p>
-    <p>"But its story survived. And that is <mark>good</mark>."</p>
-    <p><mark>All</mark> cameras clicked at once. A new chapter of history had begun.</p>
+    <p>There was a <mark>big</mark>, <mark>old</mark> bone in the museum.</p>
+    <p><mark>Many</mark> people came to look at it.</p>
+    <p><mark>Some</mark> felt <mark>sad</mark>. <mark>Some</mark> felt happy.</p>
+    <p>It had a <mark>long</mark>, <mark>cold</mark> story.</p>
+    <p><mark>All</mark> the children loved it.</p>
+    <p>"It came from a <mark>high</mark> mountain," said the teacher.</p>
+    <p>"<mark>Many</mark> <mark>good</mark> animals lived there."</p>
+    <p>"Then the <mark>cold</mark> came. <mark>All</mark> of them went away."</p>
+    <p>A small girl raised her hand. "Were they <mark>sad</mark>?" she asked.</p>
+    <p>"No," said the teacher. "They were brave."</p>
   </div>
-  <div class="ja"><h3>🇯🇵 日本語訳</h3>高くて凍った山を登るのは、長くつらい道のりでした。<br>空気は冷たく、チームの多くが諦めたくなっていました。<br>「こんなに全部頑張っても……無駄？」と一部の人がぼやきました。<br>すると最年長の科学者・田中博士が突然立ち止まりました。<br>「この古い岩を見てください」と彼女は静かな声で言いました。<br>岩の一部が割れて開いていました。<br>中には大きなもの——信じられないものがありました。<br>完璧に保存された化石——長い、巨大な骨。<br>何人かは喜びの声を上げました。他の人たちは悲しくなりました。<br>「この生き物は冷たい山の上で一人で死んだのです」と田中博士が言いました。<br>「でもその物語は生き残りました。それは素晴らしいことです。」<br>全員のカメラが一斉にシャッターを切りました。歴史の新しい章が始まりました。</div>
+  <div class="ja"><h3>🇯🇵 日本語訳</h3>博物館に大きくて古い骨がありました。<br>多くの人々がそれを見に来ました。<br>悲しく感じる人もいれば、嬉しく感じる人もいました。<br>それは長くて冷たい物語を持っていました。<br>全ての子どもたちがそれを大好きになりました。<br>「高い山から来ました」と先生が言いました。<br>「多くの良い動物たちがそこに住んでいました。」<br>「そして寒さがやってきました。彼らは全ていなくなりました。」<br>小さな女の子が手を挙げました。「彼らは悲しかったの？」<br>「いいえ」と先生は言いました。「彼らは勇敢でした。」</div>
 </div>
 <div class="clil">
   <h2>🦕 CLIL豆知識：日本の恐竜</h2>
-  <p>日本でも恐竜化石が発見されています！北海道・むかわ町で2013年発見の<strong>カムイサウルス（むかわ竜）</strong>は体長8m以上、アジア最大級のハドロサウルス科です。<br><br><span class="clil-en">Japan has its own dinosaurs! The Kamuysaurus discovered in Hokkaido in 2013 is one of Asia's largest hadrosaurs, over 8 meters long!</span><br><br>岩手県や福島県でも恐竜化石が次々と発見されており、日本は意外にも恐竜大国なのです！</p>
+  <p>日本でも恐竜化石が発見されています！北海道むかわ町で発見された<strong>カムイサウルス（むかわ竜）</strong>は体長8m以上で、アジア最大級のハドロサウルス科です。<br><br><span class="clil-en">Japan has its own dinosaurs! The Kamuysaurus found in Hokkaido is over 8 meters long — one of Asia's largest!</span><br><br>岩手県や福島県でも恐竜化石が次々と発見されており、あなたの住む町の近くにも恐竜がいたかもしれません！</p>
 </div>
 <div class="box">
   <div class="sec-title">📖 単語まとめカード</div>
-  <div class="wcard"><span class="wnum">#71</span><div class="winfo"><div class="wen">all</div><div class="wja">全ての / 全部</div><span class="wph">all day — 一日中</span></div></div>
-  <div class="wcard"><span class="wnum">#72</span><div class="winfo"><div class="wen">big</div><div class="wja">大きい</div><span class="wph">a big dream — 大きな夢</span></div></div>
-  <div class="wcard"><span class="wnum">#73</span><div class="winfo"><div class="wen">good</div><div class="wja">良い / 上手な</div><span class="wph">good job — よくできました</span></div></div>
-  <div class="wcard"><span class="wnum">#74</span><div class="winfo"><div class="wen">old</div><div class="wja">古い / 年老いた</div><span class="wph">an old castle — 古いお城</span></div></div>
-  <div class="wcard"><span class="wnum">#75</span><div class="winfo"><div class="wen">many</div><div class="wja">多くの</div><span class="wph">many people — 多くの人々</span></div></div>
-  <div class="wcard"><span class="wnum">#76</span><div class="winfo"><div class="wen">sad</div><div class="wja">悲しい</div><span class="wph">feel sad — 悲しく感じる</span></div></div>
-  <div class="wcard"><span class="wnum">#77</span><div class="winfo"><div class="wen">long</div><div class="wja">長い</div><span class="wph">a long journey — 長い旅</span></div></div>
-  <div class="wcard"><span class="wnum">#78</span><div class="winfo"><div class="wen">some</div><div class="wja">いくつかの / 少しの</div><span class="wph">some water — 少しの水</span></div></div>
-  <div class="wcard"><span class="wnum">#79</span><div class="winfo"><div class="wen">cold</div><div class="wja">冷たい / 寒い</div><span class="wph">cold weather — 寒い天気</span></div></div>
-  <div class="wcard"><span class="wnum">#80</span><div class="winfo"><div class="wen">high</div><div class="wja">高い</div><span class="wph">a high mountain — 高い山</span></div></div>
+  <div class="wcard"><span class="wnum">#71</span><div class="winfo"><div class="wen">all</div><div class="wipa">/ɔːl/</div><div class="wja">すべての</div><span class="wph">All the students wear a tie.</span></div></div>
+  <div class="wcard"><span class="wnum">#72</span><div class="winfo"><div class="wen">big</div><div class="wipa">/bɪɡ/</div><div class="wja">大きい</div><span class="wph">The teacher lives in a big house.</span></div></div>
+  <div class="wcard"><span class="wnum">#73</span><div class="winfo"><div class="wen">good</div><div class="wipa">/ɡʊd/</div><div class="wja">良い</div><span class="wph">Mr. Brown did a good job.</span></div></div>
+  <div class="wcard"><span class="wnum">#74</span><div class="winfo"><div class="wen">old</div><div class="wipa">/oʊld/</div><div class="wja">古い</div><span class="wph">pull down the old building</span></div></div>
+  <div class="wcard"><span class="wnum">#75</span><div class="winfo"><div class="wen">many</div><div class="wipa">/ˈmeni/</div><div class="wja">多くの</div><span class="wph">Did you make many mistakes?</span></div></div>
+  <div class="wcard"><span class="wnum">#76</span><div class="winfo"><div class="wen">sad</div><div class="wipa">/sæd/</div><div class="wja">悲しい</div><span class="wph">I was sad to leave Japan.</span></div></div>
+  <div class="wcard"><span class="wnum">#77</span><div class="winfo"><div class="wen">long</div><div class="wipa">/lɔːŋ/</div><div class="wja">長い</div><span class="wph">walk along a long corridor</span></div></div>
+  <div class="wcard"><span class="wnum">#78</span><div class="winfo"><div class="wen">some</div><div class="wipa">/sʌm/</div><div class="wja">いくつかの</div><span class="wph">I have some questions about the matter.</span></div></div>
+  <div class="wcard"><span class="wnum">#79</span><div class="winfo"><div class="wen">cold</div><div class="wipa">/koʊld/</div><div class="wja">寒い</div><span class="wph">It was cold today.</span></div></div>
+  <div class="wcard"><span class="wnum">#80</span><div class="winfo"><div class="wen">high</div><div class="wipa">/haɪ/</div><div class="wja">高い</div><span class="wph">Tokyo Tower is higher than Kyoto Tower.</span></div></div>
 </div>
-<div class="footer">ユメタン０ Unit01 ｜ 次回は単語 #81〜#90<br>Keep reading every day! 🌟</div>
+<div class="footer">
+  ユメタン０ Unit01 ｜ 次回は単語 #81〜90<br>
+  Keep reading every day! 🌟
 </div>
-<script>const STORY_TEXT_PLAIN = `It was a long, hard climb up the high, frozen mountain. The air was cold, and many of the team wanted to give up. All this work... for nothing? some of them muttered. Then the oldest scientist, Dr. Tanaka, stopped suddenly. Look at this old rock, she said in a quiet voice. Part of the stone had cracked open. Inside was something big. Something impossible. A perfectly preserved fossil — a long, enormous bone. Some team members cheered. Others felt sad. This creature died alone up here in the cold, said Dr. Tanaka. But its story survived. And that is good. All cameras clicked at once. A new chapter of history had begun.`;
-let speechRate=1.0;function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
+</div>
+<script>const STORY_TEXT_PLAIN = `There was a big, old bone in the museum. Many people came to look at it. Some felt sad. Some felt happy. It had a long, cold story. All the children loved it. It came from a high mountain, said the teacher. Many good animals lived there. Then the cold came. All of them went away. A small girl raised her hand. Were they sad? she asked. No, said the teacher. They were brave.`;
+let speechRate=1.0;
+function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
 function playStory(){if(!('speechSynthesis' in window)){alert('音声未対応');return;}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);u.lang='en-US';u.rate=speechRate;u.pitch=1.0;const v=window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en'));if(v)u.voice=v;window.speechSynthesis.speak(u);}
 function stopStory(){window.speechSynthesis.cancel();}
 if(window.speechSynthesis){window.speechSynthesis.getVoices();window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}</script>

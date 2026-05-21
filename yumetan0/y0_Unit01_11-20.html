@@ -16,6 +16,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .sec-title{font-size:14px;font-weight:700;color:var(--p);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--hbg);border:2px solid var(--hb);border-radius:20px;padding:5px 14px;font-size:14px;font-weight:700;color:#78350f}
+.level-badge{display:inline-block;background:#e0e7ff;color:#3730a3;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
 .prog-label{display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600}
 .prog-out{background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden}
 .prog-in{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--pl))}
@@ -28,9 +29,9 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .play-row{display:flex;gap:10px}
 .btn-play{background:var(--p);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:1}
 .btn-stop{background:#e2e8f0;color:#475569;border:none;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
-.en{font-size:16px;line-height:1.9;color:#1e293b;margin-bottom:16px}
+.en{font-size:16px;line-height:2.1;color:#1e293b;margin-bottom:16px}
 .en mark{background:var(--hbg);border-bottom:2px solid var(--hb);border-radius:3px;padding:1px 3px;font-weight:700;color:#78350f}
-.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.8;color:#475569}
+.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.9;color:#475569}
 .ja h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px}
 .clil{border:2px solid var(--g);border-radius:12px;padding:16px 18px;margin-bottom:16px;background:#fff;box-shadow:0 2px 8px rgba(16,185,129,.1)}
 .clil h2{font-size:14px;font-weight:700;color:var(--g);margin-bottom:10px}
@@ -39,7 +40,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .wcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px}
 .wnum{background:var(--p);color:#fff;border-radius:6px;font-size:11px;font-weight:800;padding:3px 7px;white-space:nowrap;margin-top:2px}
 .winfo{flex:1}
-.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:3px}
+.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:2px}
+.wipa{font-size:13px;color:#6366f1;font-style:italic;margin-bottom:3px}
 .wja{font-size:13px;color:#64748b;margin-bottom:5px}
 .wph{font-size:13px;background:var(--hbg);border-radius:6px;padding:4px 10px;color:#78350f;display:inline-block;font-style:italic}
 .footer{text-align:center;font-size:12px;color:#94a3b8;padding-bottom:20px;line-height:1.7}</style>
@@ -49,18 +51,19 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 <div class="hdr">
   <div class="badge">📘 Unit01 / 08</div>
   <h1>ユメタン０ 音読ストーリー</h1>
-  <div class="sub">単語 #11〜#20 ｜ 2026年5月20日（水）</div>
+  <div class="sub">単語 #11〜#20 ｜ 2026年5月21日（木）</div>
 </div>
 <div class="box">
-  <div class="prog-label"><span>📊 全体進捗</span><span>20 / 800語 (2.5%)</span></div>
-  <div class="prog-out"><div class="prog-in" style="width:2.5%"></div></div>
+  <div class="level-badge">📊 英検5級レベル ｜ 現在形・過去形・疑問文</div>
+  <div class="prog-label"><span>📈 全体進捗</span><span>20 / 800語 (2.50%)</span></div>
+  <div class="prog-out"><div class="prog-in" style="width:2.50%"></div></div>
 </div>
 <div class="box">
   <div class="sec-title">✨ 今日の10単語 — 🔍 ミステリー</div>
   <div class="chips"><span class="chip">class</span><span class="chip">student</span><span class="chip">friend</span><span class="chip">group</span><span class="chip">ability</span><span class="chip">word</span><span class="chip">dictionary</span><span class="chip">library</span><span class="chip">college</span><span class="chip">future</span></div>
 </div>
 <div class="box">
-  <div class="story-title">🔍 The Whispering Dictionary</div>
+  <div class="story-title">🔍 The Missing Word</div>
   <div class="player">
     <div class="speed-row">
       <span class="speed-label">速さ：</span>
@@ -74,44 +77,46 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
     </div>
   </div>
   <div class="en">
-    <p>Something strange happened during <mark>class</mark> on Monday.</p>
-    <p>Yuki, a quiet <mark>student</mark>, heard a whisper from the bookshelf.</p>
-    <p>"Did you hear that?" she asked her <mark>friend</mark> Hana.</p>
-    <p>Their <mark>group</mark> stayed in the <mark>library</mark> after school.</p>
-    <p>The old <mark>dictionary</mark> had a hidden <mark>ability</mark> — it could whisper.</p>
-    <p>Each <mark>word</mark> inside held a secret message about the <mark>future</mark>.</p>
-    <p>"Someone left a code here," said Yuki. "For a <mark>college</mark> student."</p>
-    <p>The message pointed to a hidden door behind the tallest bookshelf.</p>
-    <p>Hana pushed it open. Cold air rushed out.</p>
-    <p>Inside was a room full of glowing letters.</p>
-    <p>"Who built this?" Hana whispered.</p>
-    <p>The dictionary whispered back: "...Me."</p>
+    <p>In the <mark>library</mark>, a <mark>student</mark> found a mystery.</p>
+    <p>One <mark>word</mark> in the <mark>dictionary</mark> was missing.</p>
+    <p>She told her <mark>friend</mark> and her <mark>group</mark>.</p>
+    <p>"We have the <mark>ability</mark> to find it," said her <mark>friend</mark>.</p>
+    <p>They looked in every <mark>class</mark>.</p>
+    <p>They looked in every book.</p>
+    <p>At last, they went to the <mark>college</mark> <mark>library</mark>.</p>
+    <p>An old teacher smiled at them.</p>
+    <p>"That <mark>word</mark> is your <mark>future</mark>," he said.</p>
+    <p>The word was: BELIEVE.</p>
   </div>
-  <div class="ja"><h3>🇯🇵 日本語訳</h3>月曜日の授業中に、奇妙なことが起こりました。<br>静かな生徒のユキが本棚から囁き声を聞きました。<br>「聞こえた？」と彼女は友達のハナに言いました。<br>放課後、グループは図書館に残りました。<br>古い辞書には隠された能力がありました——囁くことができたのです。<br>中の各単語には、未来についての秘密のメッセージが隠されていました。<br>「誰かがここにコードを残した」とユキが言いました。「大学生に向けて。」<br>メッセージは一番高い本棚の裏の隠し扉を指していました。<br>ハナがそれを押し開けると、冷たい空気が流れ出てきました。<br>中には光る文字で満たされた部屋がありました。<br>「誰がこれを作ったの？」とハナが囁きました。<br>辞書が囁き返しました：「……私よ。」</div>
+  <div class="ja"><h3>🇯🇵 日本語訳</h3>図書館で、ある生徒が不思議なことに気づきました。<br>辞書の中の一つの単語がありませんでした。<br>彼女は友だちとグループのみんなに話しました。<br>「私たちには見つける能力がある」と友だちが言いました。<br>彼らは全てのクラスで探しました。<br>全ての本を調べました。<br>ついに、大学の図書館に行きました。<br>年老いた先生が彼らに微笑みました。<br>「その言葉はあなたの未来だよ」と彼は言いました。<br>その言葉は：BELIEVE（信じる）でした。</div>
 </div>
 <div class="clil">
-  <h2>📚 CLIL豆知識：辞書の歴史</h2>
-  <p>世界で最初の辞書は、メソポタミア（現在のイラク）で作られた<strong>粘土板の単語集</strong>（約2,500年前）！英語の辞書はロバート・コードリーが1604年に初めて作りました。<br><br><span class="clil-en">The world's first dictionary was written on clay tablets in ancient Mesopotamia over 2,500 years ago!</span><br><br>日本語の大辞典「広辞苑」は約25万語を収録。編集者の新村出は30年以上かけて完成させました！</p>
+  <h2>📚 CLIL豆知識：世界最大の図書館</h2>
+  <p>アメリカの<strong>議会図書館</strong>は世界最大で、約1億7千万点以上の資料があります！本だけでなく、地図・写真・録音・映像も収蔵しています。<br><br><span class="clil-en">The Library of Congress in the USA has over 170 million items — not just books, but maps, photos, recordings, and films!</span><br><br>日本の<strong>国立国会図書館</strong>も世界有数の図書館。あなたの知りたいことはきっと図書館にあります！</p>
 </div>
 <div class="box">
   <div class="sec-title">📖 単語まとめカード</div>
-  <div class="wcard"><span class="wnum">#11</span><div class="winfo"><div class="wen">class</div><div class="wja">授業 / クラス</div><span class="wph">after class — 授業のあと</span></div></div>
-  <div class="wcard"><span class="wnum">#12</span><div class="winfo"><div class="wen">student</div><div class="wja">生徒 / 学生</div><span class="wph">a good student — よい生徒</span></div></div>
-  <div class="wcard"><span class="wnum">#13</span><div class="winfo"><div class="wen">friend</div><div class="wja">友達</div><span class="wph">my best friend — 親友</span></div></div>
-  <div class="wcard"><span class="wnum">#14</span><div class="winfo"><div class="wen">group</div><div class="wja">グループ / 集団</div><span class="wph">work in a group — グループで活動する</span></div></div>
-  <div class="wcard"><span class="wnum">#15</span><div class="winfo"><div class="wen">ability</div><div class="wja">能力 / 才能</div><span class="wph">the ability to learn — 学ぶ能力</span></div></div>
-  <div class="wcard"><span class="wnum">#16</span><div class="winfo"><div class="wen">word</div><div class="wja">単語 / 言葉</div><span class="wph">a new word — 新しい単語</span></div></div>
-  <div class="wcard"><span class="wnum">#17</span><div class="winfo"><div class="wen">dictionary</div><div class="wja">辞書 / 辞典</div><span class="wph">look up in a dictionary — 辞書で調べる</span></div></div>
-  <div class="wcard"><span class="wnum">#18</span><div class="winfo"><div class="wen">library</div><div class="wja">図書館</div><span class="wph">go to the library — 図書館へ行く</span></div></div>
-  <div class="wcard"><span class="wnum">#19</span><div class="winfo"><div class="wen">college</div><div class="wja">大学 / 短期大学</div><span class="wph">go to college — 大学に進学する</span></div></div>
-  <div class="wcard"><span class="wnum">#20</span><div class="winfo"><div class="wen">future</div><div class="wja">未来 / 将来</div><span class="wph">in the future — 将来は</span></div></div>
+  <div class="wcard"><span class="wnum">#11</span><div class="winfo"><div class="wen">class</div><div class="wipa">/klæs/</div><div class="wja">クラス</div><span class="wph">Ken is the tallest in my class.</span></div></div>
+  <div class="wcard"><span class="wnum">#12</span><div class="winfo"><div class="wen">student</div><div class="wipa">/ˈstuːdənt/</div><div class="wja">学生</div><span class="wph">I'm a student of this college.</span></div></div>
+  <div class="wcard"><span class="wnum">#13</span><div class="winfo"><div class="wen">friend</div><div class="wipa">/frend/</div><div class="wja">友達</div><span class="wph">Ken is a friend of mine.</span></div></div>
+  <div class="wcard"><span class="wnum">#14</span><div class="winfo"><div class="wen">group</div><div class="wipa">/ɡruːp/</div><div class="wja">グループ</div><span class="wph">A group of tourists were looking at the old tower.</span></div></div>
+  <div class="wcard"><span class="wnum">#15</span><div class="winfo"><div class="wen">ability</div><div class="wipa">/əˈbɪlɪti/</div><div class="wja">能力</div><span class="wph">My boss has the ability to manage.</span></div></div>
+  <div class="wcard"><span class="wnum">#16</span><div class="winfo"><div class="wen">word</div><div class="wipa">/wɜːrd/</div><div class="wja">単語</div><span class="wph">learn Japanese words</span></div></div>
+  <div class="wcard"><span class="wnum">#17</span><div class="winfo"><div class="wen">dictionary</div><div class="wipa">/ˈdɪkʃəneri/</div><div class="wja">辞書</div><span class="wph">look up a word in a dictionary</span></div></div>
+  <div class="wcard"><span class="wnum">#18</span><div class="winfo"><div class="wen">library</div><div class="wipa">/ˈlaɪbreri/</div><div class="wja">図書館</div><span class="wph">My brother goes to the library every day.</span></div></div>
+  <div class="wcard"><span class="wnum">#19</span><div class="winfo"><div class="wen">college</div><div class="wipa">/ˈkɑːlɪdʒ/</div><div class="wja">単科大学</div><span class="wph">It will be easy for the student to enter college.</span></div></div>
+  <div class="wcard"><span class="wnum">#20</span><div class="winfo"><div class="wen">future</div><div class="wipa">/ˈfjuːtʃər/</div><div class="wja">将来</div><span class="wph">In the near future I'll get back to my hometown.</span></div></div>
 </div>
-<div class="footer">ユメタン０ Unit01 ｜ 次回は単語 #21〜#30<br>Keep reading every day! 🌟</div>
+<div class="footer">
+  ユメタン０ Unit01 ｜ 次回は単語 #21〜30<br>
+  Keep reading every day! 🌟
 </div>
-<script>const STORY_TEXT_PLAIN = `Something strange happened during class on Monday. Yuki, a quiet student, heard a whisper from the bookshelf. Did you hear that? she asked her friend Hana. Their group stayed in the library after school. The old dictionary had a hidden ability — it could whisper. Each word inside held a secret message about the future. Someone left a code here, said Yuki. For a college student. The message pointed to a hidden door behind the tallest bookshelf. Hana pushed it open. Cold air rushed out. Inside was a room full of glowing letters. Who built this? Hana whispered. The dictionary whispered back: ...Me.`;
+</div>
+<script>const STORY_TEXT_PLAIN = `In the library, a student found a mystery. One word in the dictionary was missing. She told her friend and her group. We have the ability to find it, said her friend. They looked in every class. They looked in every book. At last, they went to the college library. An old teacher smiled at them. That word is your future, he said. The word was: BELIEVE.`;
 let speechRate=1.0;
 function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
 function playStory(){if(!('speechSynthesis' in window)){alert('音声未対応');return;}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);u.lang='en-US';u.rate=speechRate;u.pitch=1.0;const v=window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en'));if(v)u.voice=v;window.speechSynthesis.speak(u);}
 function stopStory(){window.speechSynthesis.cancel();}
 if(window.speechSynthesis){window.speechSynthesis.getVoices();window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}</script>
-</body></html>
+</body>
+</html>

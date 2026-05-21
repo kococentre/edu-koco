@@ -16,6 +16,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .sec-title{font-size:14px;font-weight:700;color:var(--p);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--hbg);border:2px solid var(--hb);border-radius:20px;padding:5px 14px;font-size:14px;font-weight:700;color:#78350f}
+.level-badge{display:inline-block;background:#e0e7ff;color:#3730a3;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
 .prog-label{display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600}
 .prog-out{background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden}
 .prog-in{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--pl))}
@@ -28,9 +29,9 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .play-row{display:flex;gap:10px}
 .btn-play{background:var(--p);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:1}
 .btn-stop{background:#e2e8f0;color:#475569;border:none;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
-.en{font-size:16px;line-height:1.9;color:#1e293b;margin-bottom:16px}
+.en{font-size:16px;line-height:2.1;color:#1e293b;margin-bottom:16px}
 .en mark{background:var(--hbg);border-bottom:2px solid var(--hb);border-radius:3px;padding:1px 3px;font-weight:700;color:#78350f}
-.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.8;color:#475569}
+.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.9;color:#475569}
 .ja h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px}
 .clil{border:2px solid var(--g);border-radius:12px;padding:16px 18px;margin-bottom:16px;background:#fff;box-shadow:0 2px 8px rgba(16,185,129,.1)}
 .clil h2{font-size:14px;font-weight:700;color:var(--g);margin-bottom:10px}
@@ -39,7 +40,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .wcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px}
 .wnum{background:var(--p);color:#fff;border-radius:6px;font-size:11px;font-weight:800;padding:3px 7px;white-space:nowrap;margin-top:2px}
 .winfo{flex:1}
-.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:3px}
+.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:2px}
+.wipa{font-size:13px;color:#6366f1;font-style:italic;margin-bottom:3px}
 .wja{font-size:13px;color:#64748b;margin-bottom:5px}
 .wph{font-size:13px;background:var(--hbg);border-radius:6px;padding:4px 10px;color:#78350f;display:inline-block;font-style:italic}
 .footer{text-align:center;font-size:12px;color:#94a3b8;padding-bottom:20px;line-height:1.7}</style>
@@ -49,10 +51,11 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 <div class="hdr">
   <div class="badge">📘 Unit01 / 08</div>
   <h1>ユメタン０ 音読ストーリー</h1>
-  <div class="sub">単語 #61〜#70 ｜ 2026年5月20日（水）</div>
+  <div class="sub">単語 #61〜#70 ｜ 2026年5月21日（木）</div>
 </div>
 <div class="box">
-  <div class="prog-label"><span>📊 全体進捗</span><span>70 / 800語 (8.75%)</span></div>
+  <div class="level-badge">📊 英検5級レベル ｜ 過去形・否定文・命令文</div>
+  <div class="prog-label"><span>📈 全体進捗</span><span>70 / 800語 (8.75%)</span></div>
   <div class="prog-out"><div class="prog-in" style="width:8.75%"></div></div>
 </div>
 <div class="box">
@@ -60,7 +63,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
   <div class="chips"><span class="chip">take</span><span class="chip">look</span><span class="chip">like</span><span class="chip">live</span><span class="chip">read</span><span class="chip">write</span><span class="chip">open</span><span class="chip">run</span><span class="chip">work</span><span class="chip">sit</span></div>
 </div>
 <div class="box">
-  <div class="story-title">🏴‍☠️ Captain Red's Last Riddle</div>
+  <div class="story-title">🏴‍☠️ The Reading Pirate</div>
   <div class="player">
     <div class="speed-row">
       <span class="speed-label">速さ：</span>
@@ -74,43 +77,44 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
     </div>
   </div>
   <div class="en">
-    <p>Deep in the cave, the pirates found the legendary chest.</p>
-    <p>"<mark>Open</mark> it!" the crew roared. But the lid would not budge.</p>
-    <p>"<mark>Look</mark> — a riddle is carved on top," said young Riku.</p>
-    <p>He began to <mark>read</mark> it aloud, slowly:</p>
-    <p>"I <mark>work</mark> for those who <mark>sit</mark> and think."</p>
-    <p>"I <mark>run</mark> for those who dare to <mark>take</mark> a chance."</p>
-    <p>"I <mark>live</mark> in every book you <mark>open</mark>."</p>
-    <p>"I <mark>look</mark> <mark>like</mark> nothing — yet I build the world."</p>
-    <p>"<mark>Write</mark> my name, and the chest shall open."</p>
-    <p>The pirates scratched their heads. Minutes passed.</p>
-    <p>"It's... an IDEA!" Riku shouted. He wrote it with a shaking hand.</p>
-    <p>CLICK. The chest swung open.</p>
-    <p>Inside was no gold. Only a map — to something far, far greater.</p>
+    <p>Captain Red did not <mark>live</mark> like other pirates.</p>
+    <p>He liked to <mark>sit</mark> and <mark>read</mark>.</p>
+    <p>He liked to <mark>write</mark> and <mark>open</mark> books.</p>
+    <p>He ran a school on his ship.</p>
+    <p>"<mark>Look</mark> at the world with open eyes," he said.</p>
+    <p>"<mark>Take</mark> good notes. <mark>Work</mark> hard every day."</p>
+    <p>One day he said: "<mark>Write</mark> your biggest dream."</p>
+    <p>They all wrote: To sail the world.</p>
+    <p>Captain Red smiled. "<mark>Run</mark> to the ship!"</p>
+    <p>And they all sailed away together.</p>
   </div>
-  <div class="ja"><h3>🇯🇵 日本語訳</h3>洞窟の奥深くで、海賊たちは伝説の宝箱を見つけました。<br>「開けろ！」と船員たちが叫びました。でもふたは動きませんでした。<br>「見て——謎かけが上に彫ってある」と若いリクが言いました。<br>彼はゆっくりと声に出して読み始めました：<br>「座って考える者のために働く。」<br>「あえて挑む者のために走る。」<br>「開く全ての本の中に生きている。」<br>「何も見えないが——世界を作る。」<br>「私の名前を書け、そすれば宝箱が開く。」<br>海賊たちは頭を掻きました。数分が過ぎました。<br>「それは……アイデアだ！」とリクが叫びました。震える手で書き留めました。<br>カチッ。宝箱が開きました。<br>中に金はありませんでした。ただ一枚の地図が——はるかに素晴らしいものへの。</div>
+  <div class="ja"><h3>🇯🇵 日本語訳</h3>キャプテン・レッドは他の海賊のような生き方をしませんでした。<br>彼は座って本を読むのが好きでした。<br>彼は書いたり本を開いたりするのが好きでした。<br>彼は船の上で学校を運営しました。<br>「目を開いて世界を見なさい」と彼は言いました。<br>「しっかりメモを取りなさい。毎日一生懸命働きなさい。」<br>ある日、「一番大きな夢を書きなさい」と言いました。<br>みんなこう書きました：世界を航海すること。<br>キャプテン・レッドは微笑みました。「船に走れ！」<br>そして、みんなは一緒に旅立ちました。</div>
 </div>
 <div class="clil">
   <h2>🏴‍☠️ CLIL豆知識：海賊の真実</h2>
-  <p>映画に出てくる「宝の地図を持つ海賊」はほぼフィクション。しかし実在した海賊<strong>キャプテン・キッド</strong>は本当に財宝を隠しており、その一部が2015年にマダガスカル島沖で発見されました！<br><br><span class="clil-en">Real pirate Captain Kidd actually buried treasure, and some of it was discovered off the coast of Madagascar in 2015!</span><br><br>海賊が「アイパッチ」をつけていたのは、片目を暗さに慣らし、甲板から暗い船倉へ素早く移動できるようにするためという説があります！</p>
+  <p>映画の海賊とは違い、実際の海賊の多くは船の上でルールを作り、民主的に行動していました。有名な海賊<strong>バーソロミュー・ロバーツ</strong>は、船員の権利を守るための「海賊憲章」を作りました！<br><br><span class="clil-en">Real pirates created democratic rules on their ships! Bartholomew Roberts wrote a pirate charter to protect sailors' rights.</span><br><br>読み書きができる海賊は当時とても珍しく、特別な力を持っていました。知識は最高の宝なのです！</p>
 </div>
 <div class="box">
   <div class="sec-title">📖 単語まとめカード</div>
-  <div class="wcard"><span class="wnum">#61</span><div class="winfo"><div class="wen">take</div><div class="wja">取る / 持っていく / かかる</div><span class="wph">take a photo — 写真を撮る</span></div></div>
-  <div class="wcard"><span class="wnum">#62</span><div class="winfo"><div class="wen">look</div><div class="wja">見る / 〜に見える</div><span class="wph">look at — 〜を見る</span></div></div>
-  <div class="wcard"><span class="wnum">#63</span><div class="winfo"><div class="wen">like</div><div class="wja">好き / 〜のような</div><span class="wph">I like cats — 猫が好きだ</span></div></div>
-  <div class="wcard"><span class="wnum">#64</span><div class="winfo"><div class="wen">live</div><div class="wja">住む / 生きる</div><span class="wph">live in Japan — 日本に住む</span></div></div>
-  <div class="wcard"><span class="wnum">#65</span><div class="winfo"><div class="wen">read</div><div class="wja">読む</div><span class="wph">read a book — 本を読む</span></div></div>
-  <div class="wcard"><span class="wnum">#66</span><div class="winfo"><div class="wen">write</div><div class="wja">書く</div><span class="wph">write a letter — 手紙を書く</span></div></div>
-  <div class="wcard"><span class="wnum">#67</span><div class="winfo"><div class="wen">open</div><div class="wja">開ける / 開いている</div><span class="wph">open the door — ドアを開ける</span></div></div>
-  <div class="wcard"><span class="wnum">#68</span><div class="winfo"><div class="wen">run</div><div class="wja">走る / 経営する</div><span class="wph">run fast — 速く走る</span></div></div>
-  <div class="wcard"><span class="wnum">#69</span><div class="winfo"><div class="wen">work</div><div class="wja">働く / 機能する</div><span class="wph">work hard — 懸命に働く</span></div></div>
-  <div class="wcard"><span class="wnum">#70</span><div class="winfo"><div class="wen">sit</div><div class="wja">座る</div><span class="wph">sit down — 座る</span></div></div>
+  <div class="wcard"><span class="wnum">#61</span><div class="winfo"><div class="wen">take</div><div class="wipa">/teɪk/</div><div class="wja">～を連れていく</div><span class="wph">Please take me with you.</span></div></div>
+  <div class="wcard"><span class="wnum">#62</span><div class="winfo"><div class="wen">look</div><div class="wipa">/lʊk/</div><div class="wja">見る</div><span class="wph">Look at the map on the blackboard.</span></div></div>
+  <div class="wcard"><span class="wnum">#63</span><div class="winfo"><div class="wen">like</div><div class="wipa">/laɪk/</div><div class="wja">～が好きである</div><span class="wph">My father likes to play the guitar.</span></div></div>
+  <div class="wcard"><span class="wnum">#64</span><div class="winfo"><div class="wen">live</div><div class="wipa">/lɪv/</div><div class="wja">住む</div><span class="wph">I lived in Scotland when I was young.</span></div></div>
+  <div class="wcard"><span class="wnum">#65</span><div class="winfo"><div class="wen">read</div><div class="wipa">/riːd/</div><div class="wja">～を読む</div><span class="wph">I like to read history books.</span></div></div>
+  <div class="wcard"><span class="wnum">#66</span><div class="winfo"><div class="wen">write</div><div class="wipa">/raɪt/</div><div class="wja">～を書く</div><span class="wph">I must write a report.</span></div></div>
+  <div class="wcard"><span class="wnum">#67</span><div class="winfo"><div class="wen">open</div><div class="wipa">/ˈoʊpən/</div><div class="wja">～を開ける</div><span class="wph">I can't open this bottle.</span></div></div>
+  <div class="wcard"><span class="wnum">#68</span><div class="winfo"><div class="wen">run</div><div class="wipa">/rʌn/</div><div class="wja">走る</div><span class="wph">I ran to catch the first bus.</span></div></div>
+  <div class="wcard"><span class="wnum">#69</span><div class="winfo"><div class="wen">work</div><div class="wipa">/wɜːrk/</div><div class="wja">働く</div><span class="wph">I work five days a week.</span></div></div>
+  <div class="wcard"><span class="wnum">#70</span><div class="winfo"><div class="wen">sit</div><div class="wipa">/sɪt/</div><div class="wja">座る</div><span class="wph">My father is sitting on the sofa.</span></div></div>
 </div>
-<div class="footer">ユメタン０ Unit01 ｜ 次回は単語 #71〜#80<br>Keep reading every day! 🌟</div>
+<div class="footer">
+  ユメタン０ Unit01 ｜ 次回は単語 #71〜80<br>
+  Keep reading every day! 🌟
 </div>
-<script>const STORY_TEXT_PLAIN = `Deep in the cave, the pirates found the legendary chest. Open it! the crew roared. But the lid would not budge. Look — a riddle is carved on top, said young Riku. He began to read it aloud, slowly: I work for those who sit and think. I run for those who dare to take a chance. I live in every book you open. I look like nothing — yet I build the world. Write my name, and the chest shall open. The pirates scratched their heads. Minutes passed. It's an IDEA! Riku shouted. He wrote it with a shaking hand. CLICK. The chest swung open. Inside was no gold. Only a map — to something far, far greater.`;
-let speechRate=1.0;function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
+</div>
+<script>const STORY_TEXT_PLAIN = `Captain Red did not live like other pirates. He liked to sit and read. He liked to write and open books. He ran a school on his ship. Look at the world with open eyes, he said. Take good notes. Work hard every day. One day he said: Write your biggest dream. They all wrote: To sail the world. Captain Red smiled. Run to the ship! And they all sailed away together.`;
+let speechRate=1.0;
+function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
 function playStory(){if(!('speechSynthesis' in window)){alert('音声未対応');return;}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);u.lang='en-US';u.rate=speechRate;u.pitch=1.0;const v=window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en'));if(v)u.voice=v;window.speechSynthesis.speak(u);}
 function stopStory(){window.speechSynthesis.cancel();}
 if(window.speechSynthesis){window.speechSynthesis.getVoices();window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}</script>

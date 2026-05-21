@@ -16,6 +16,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .sec-title{font-size:14px;font-weight:700;color:var(--p);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--hbg);border:2px solid var(--hb);border-radius:20px;padding:5px 14px;font-size:14px;font-weight:700;color:#78350f}
+.level-badge{display:inline-block;background:#e0e7ff;color:#3730a3;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
 .prog-label{display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600}
 .prog-out{background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden}
 .prog-in{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--pl))}
@@ -28,9 +29,9 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .play-row{display:flex;gap:10px}
 .btn-play{background:var(--p);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:1}
 .btn-stop{background:#e2e8f0;color:#475569;border:none;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
-.en{font-size:16px;line-height:1.9;color:#1e293b;margin-bottom:16px}
+.en{font-size:16px;line-height:2.1;color:#1e293b;margin-bottom:16px}
 .en mark{background:var(--hbg);border-bottom:2px solid var(--hb);border-radius:3px;padding:1px 3px;font-weight:700;color:#78350f}
-.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.8;color:#475569}
+.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.9;color:#475569}
 .ja h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px}
 .clil{border:2px solid var(--g);border-radius:12px;padding:16px 18px;margin-bottom:16px;background:#fff;box-shadow:0 2px 8px rgba(16,185,129,.1)}
 .clil h2{font-size:14px;font-weight:700;color:var(--g);margin-bottom:10px}
@@ -39,7 +40,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .wcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px}
 .wnum{background:var(--p);color:#fff;border-radius:6px;font-size:11px;font-weight:800;padding:3px 7px;white-space:nowrap;margin-top:2px}
 .winfo{flex:1}
-.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:3px}
+.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:2px}
+.wipa{font-size:13px;color:#6366f1;font-style:italic;margin-bottom:3px}
 .wja{font-size:13px;color:#64748b;margin-bottom:5px}
 .wph{font-size:13px;background:var(--hbg);border-radius:6px;padding:4px 10px;color:#78350f;display:inline-block;font-style:italic}
 .footer{text-align:center;font-size:12px;color:#94a3b8;padding-bottom:20px;line-height:1.7}</style>
@@ -49,18 +51,19 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 <div class="hdr">
   <div class="badge">📘 Unit01 / 08</div>
   <h1>ユメタン０ 音読ストーリー</h1>
-  <div class="sub">単語 #51〜#60 ｜ 2026年5月20日（水）</div>
+  <div class="sub">単語 #51〜#60 ｜ 2026年5月21日（木）</div>
 </div>
 <div class="box">
-  <div class="prog-label"><span>📊 全体進捗</span><span>60 / 800語 (7.5%)</span></div>
-  <div class="prog-out"><div class="prog-in" style="width:7.5%"></div></div>
+  <div class="level-badge">📊 英検5級レベル ｜ 命令文・基本動詞・will（入門）</div>
+  <div class="prog-label"><span>📈 全体進捗</span><span>60 / 800語 (7.50%)</span></div>
+  <div class="prog-out"><div class="prog-in" style="width:7.50%"></div></div>
 </div>
 <div class="box">
   <div class="sec-title">✨ 今日の10単語 — 🧙 魔法・ファンタジー</div>
   <div class="chips"><span class="chip">do</span><span class="chip">go</span><span class="chip">come</span><span class="chip">have</span><span class="chip">tell</span><span class="chip">meet</span><span class="chip">cut</span><span class="chip">get</span><span class="chip">give</span><span class="chip">make</span></div>
 </div>
 <div class="box">
-  <div class="story-title">🧙 The Dragon's Ten Commands</div>
+  <div class="story-title">🧙 The Magic Wish</div>
   <div class="player">
     <div class="speed-row">
       <span class="speed-label">速さ：</span>
@@ -74,43 +77,44 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
     </div>
   </div>
   <div class="en">
-    <p>The ancient wizard looked at the boy and smiled.</p>
-    <p>"To wake the sleeping dragon, you must <mark>do</mark> ten things."</p>
-    <p>"First: <mark>go</mark> to the Dark Forest at the stroke of midnight."</p>
-    <p>"Second: <mark>come</mark> alone. No friends. No weapons."</p>
-    <p>"Third: <mark>have</mark> no fear — not even one drop."</p>
-    <p>"Fourth: <mark>tell</mark> the dragon your truest, deepest name."</p>
-    <p>"Fifth: <mark>meet</mark> its golden eyes. Do not blink."</p>
-    <p>"Sixth: <mark>cut</mark> the cold air three times with your bare hand."</p>
-    <p>"Seventh: <mark>get</mark> one scale from its ancient wing — gently."</p>
-    <p>"Eighth: <mark>give</mark> the scale back, as a gift of trust."</p>
-    <p>"Ninth: <mark>make</mark> one promise you will keep until you die."</p>
-    <p>"And the tenth?" the boy asked, trembling.</p>
-    <p>The wizard's eyes glowed. "The tenth... the dragon will <mark>tell</mark> you."</p>
+    <p>A wizard came to a small town.</p>
+    <p>"I will <mark>give</mark> you one wish," he said.</p>
+    <p>"<mark>Go</mark> home and think."</p>
+    <p>"<mark>Come</mark> back tomorrow."</p>
+    <p>The next day, a girl came to <mark>meet</mark> him.</p>
+    <p>"I want to <mark>make</mark> my friends happy," she said.</p>
+    <p>"<mark>Do</mark> good things and you will <mark>get</mark> it," said the wizard.</p>
+    <p>"<mark>Tell</mark> your friends you care."</p>
+    <p>"<mark>Cut</mark> away your fear. You already <mark>have</mark> the power."</p>
+    <p>The girl smiled. She went home and tried.</p>
   </div>
-  <div class="ja"><h3>🇯🇵 日本語訳</h3>古い魔法使いは少年を見て微笑みました。<br>「眠れる竜を目覚めさせるには、10のことをしなければならない。」<br>「一つ目：真夜中の鐘が鳴る時、暗黒の森へ行け。」<br>「二つ目：一人で来い。友達も武器も持つな。」<br>「三つ目：恐れを持つな——一滴たりとも。」<br>「四つ目：竜に最も真実の深い名前を告げよ。」<br>「五つ目：黄金の目を見つめよ。まばたきするな。」<br>「六つ目：素手で冷たい空気を三度切れ。」<br>「七つ目：古い翼から一枚の鱗を、そっと取れ。」<br>「八つ目：その鱗を信頼の贈り物として返せ。」<br>「九つ目：死ぬまで守り続ける約束を一つせよ。」<br>「十番目は？」少年は震えながら聞きました。<br>魔法使いの目が光りました。「十番目は……竜が教えてくれる。」</div>
+  <div class="ja"><h3>🇯🇵 日本語訳</h3>魔法使いが小さな町にやってきました。<br>「一つだけ願いをかなえてあげよう」と彼は言いました。<br>「家に帰って考えなさい。」<br>「明日また来なさい。」<br>翌日、女の子が彼に会いに来ました。<br>「友だちを幸せにしたい」と彼女は言いました。<br>「良いことをすれば得られる」と魔法使いが言いました。<br>「友だちに気持ちを伝えなさい。」<br>「恐れを断ち切りなさい。あなたはもうその力を持っている。」<br>女の子は微笑みました。彼女は家に帰って、試してみました。</div>
 </div>
 <div class="clil">
-  <h2>🐉 CLIL豆知識：世界のドラゴン伝説</h2>
-  <p>ドラゴンの伝説は世界中の文化に独立して存在します！ヨーロッパでは<strong>炎を吐く怪物</strong>、中国では<strong>幸運と知恵の神</strong>、日本では<strong>水と海を司る神</strong>として描かれています。<br><br><span class="clil-en">Dragon legends exist independently in cultures worldwide — fire-breathing monsters in Europe, lucky water gods in China, and ocean guardians in Japan!</span><br><br>多くの文化でドラゴン伝説が生まれた理由の一つは、人々が恐竜の化石を発見し「怪物の骨」だと思ったからかもしれません！</p>
+  <h2>💫 CLIL豆知識：世界の魔法使い伝説</h2>
+  <p>世界中の文化に「賢者・魔法使い」の伝説があります。古代エジプトの神官、日本の陰陽師、ヨーロッパの魔法使い——みんな「知恵と力」の象徴でした。<br><br><span class="clil-en">Every culture has legends about wise wizards — from ancient Egyptian priests to Japan's onmyoji to European sorcerers!</span><br><br>「魔法の力」は実は人の心の中にあると言った哲学者がいます。アドラーも「勇気」こそが最大の魔法だと言いました！</p>
 </div>
 <div class="box">
   <div class="sec-title">📖 単語まとめカード</div>
-  <div class="wcard"><span class="wnum">#51</span><div class="winfo"><div class="wen">do</div><div class="wja">する / やる</div><span class="wph">do your best — ベストを尽くす</span></div></div>
-  <div class="wcard"><span class="wnum">#52</span><div class="winfo"><div class="wen">go</div><div class="wja">行く</div><span class="wph">go to school — 学校へ行く</span></div></div>
-  <div class="wcard"><span class="wnum">#53</span><div class="winfo"><div class="wen">come</div><div class="wja">来る</div><span class="wph">come here — ここに来る</span></div></div>
-  <div class="wcard"><span class="wnum">#54</span><div class="winfo"><div class="wen">have</div><div class="wja">持つ / 食べる / いる</div><span class="wph">have fun — 楽しむ</span></div></div>
-  <div class="wcard"><span class="wnum">#55</span><div class="winfo"><div class="wen">tell</div><div class="wja">話す / 教える</div><span class="wph">tell a story — 物語を話す</span></div></div>
-  <div class="wcard"><span class="wnum">#56</span><div class="winfo"><div class="wen">meet</div><div class="wja">会う</div><span class="wph">nice to meet you — はじめまして</span></div></div>
-  <div class="wcard"><span class="wnum">#57</span><div class="winfo"><div class="wen">cut</div><div class="wja">切る</div><span class="wph">cut the paper — 紙を切る</span></div></div>
-  <div class="wcard"><span class="wnum">#58</span><div class="winfo"><div class="wen">get</div><div class="wja">得る / なる</div><span class="wph">get ready — 準備する</span></div></div>
-  <div class="wcard"><span class="wnum">#59</span><div class="winfo"><div class="wen">give</div><div class="wja">与える / あげる</div><span class="wph">give a gift — 贈り物をする</span></div></div>
-  <div class="wcard"><span class="wnum">#60</span><div class="winfo"><div class="wen">make</div><div class="wja">作る / 〜にする</div><span class="wph">make friends — 友達を作る</span></div></div>
+  <div class="wcard"><span class="wnum">#51</span><div class="winfo"><div class="wen">do</div><div class="wipa">/duː/</div><div class="wja">～をする</div><span class="wph">Please do it yourself.</span></div></div>
+  <div class="wcard"><span class="wnum">#52</span><div class="winfo"><div class="wen">go</div><div class="wipa">/ɡoʊ/</div><div class="wja">行く</div><span class="wph">My boss said, “Let's go to the meeting room.”</span></div></div>
+  <div class="wcard"><span class="wnum">#53</span><div class="winfo"><div class="wen">come</div><div class="wipa">/kʌm/</div><div class="wja">来る</div><span class="wph">The new student came from Italy.</span></div></div>
+  <div class="wcard"><span class="wnum">#54</span><div class="winfo"><div class="wen">have</div><div class="wipa">/hæv/</div><div class="wja">～を持っている</div><span class="wph">I have a book to read on the bus.</span></div></div>
+  <div class="wcard"><span class="wnum">#55</span><div class="winfo"><div class="wen">tell</div><div class="wipa">/tel/</div><div class="wja">～を話す</div><span class="wph">Don't tell a lie.</span></div></div>
+  <div class="wcard"><span class="wnum">#56</span><div class="winfo"><div class="wen">meet</div><div class="wipa">/miːt/</div><div class="wja">～と会う</div><span class="wph">I met my boss this morning.</span></div></div>
+  <div class="wcard"><span class="wnum">#57</span><div class="winfo"><div class="wen">cut</div><div class="wipa">/kʌt/</div><div class="wja">～を切る</div><span class="wph">cut the cloth with scissors</span></div></div>
+  <div class="wcard"><span class="wnum">#58</span><div class="winfo"><div class="wen">get</div><div class="wipa">/ɡet/</div><div class="wja">～を手に入れる</div><span class="wph">I got the concert ticket for him.</span></div></div>
+  <div class="wcard"><span class="wnum">#59</span><div class="winfo"><div class="wen">give</div><div class="wipa">/ɡɪv/</div><div class="wja">～をあげる</div><span class="wph">I gave my wife a birthday present.</span></div></div>
+  <div class="wcard"><span class="wnum">#60</span><div class="winfo"><div class="wen">make</div><div class="wipa">/meɪk/</div><div class="wja">～を作る</div><span class="wph">My mother is making a cake.</span></div></div>
 </div>
-<div class="footer">ユメタン０ Unit01 ｜ 次回は単語 #61〜#70<br>Keep reading every day! 🌟</div>
+<div class="footer">
+  ユメタン０ Unit01 ｜ 次回は単語 #61〜70<br>
+  Keep reading every day! 🌟
 </div>
-<script>const STORY_TEXT_PLAIN = `The ancient wizard looked at the boy and smiled. To wake the sleeping dragon, you must do ten things. First: go to the Dark Forest at the stroke of midnight. Second: come alone. No friends. No weapons. Third: have no fear — not even one drop. Fourth: tell the dragon your truest, deepest name. Fifth: meet its golden eyes. Do not blink. Sixth: cut the cold air three times with your bare hand. Seventh: get one scale from its ancient wing — gently. Eighth: give the scale back, as a gift of trust. Ninth: make one promise you will keep until you die. And the tenth? the boy asked, trembling. The wizard's eyes glowed. The tenth... the dragon will tell you.`;
-let speechRate=1.0;function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
+</div>
+<script>const STORY_TEXT_PLAIN = `A wizard came to a small town. I will give you one wish, he said. Go home and think. Come back tomorrow. The next day, a girl came to meet him. I want to make my friends happy, she said. Do good things and you will get it, said the wizard. Tell your friends you care. Cut away your fear. You already have the power. The girl smiled. She went home and tried.`;
+let speechRate=1.0;
+function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
 function playStory(){if(!('speechSynthesis' in window)){alert('音声未対応');return;}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);u.lang='en-US';u.rate=speechRate;u.pitch=1.0;const v=window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en'));if(v)u.voice=v;window.speechSynthesis.speak(u);}
 function stopStory(){window.speechSynthesis.cancel();}
 if(window.speechSynthesis){window.speechSynthesis.getVoices();window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}</script>

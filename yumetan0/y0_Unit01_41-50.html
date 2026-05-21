@@ -16,6 +16,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .sec-title{font-size:14px;font-weight:700;color:var(--p);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--hbg);border:2px solid var(--hb);border-radius:20px;padding:5px 14px;font-size:14px;font-weight:700;color:#78350f}
+.level-badge{display:inline-block;background:#e0e7ff;color:#3730a3;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
 .prog-label{display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-bottom:8px;font-weight:600}
 .prog-out{background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden}
 .prog-in{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--pl))}
@@ -28,9 +29,9 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .play-row{display:flex;gap:10px}
 .btn-play{background:var(--p);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;flex:1}
 .btn-stop{background:#e2e8f0;color:#475569;border:none;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
-.en{font-size:16px;line-height:1.9;color:#1e293b;margin-bottom:16px}
+.en{font-size:16px;line-height:2.1;color:#1e293b;margin-bottom:16px}
 .en mark{background:var(--hbg);border-bottom:2px solid var(--hb);border-radius:3px;padding:1px 3px;font-weight:700;color:#78350f}
-.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.8;color:#475569}
+.ja{background:#f8fafc;border-left:4px solid var(--pl);border-radius:0 8px 8px 0;padding:14px 16px;font-size:14px;line-height:1.9;color:#475569}
 .ja h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px}
 .clil{border:2px solid var(--g);border-radius:12px;padding:16px 18px;margin-bottom:16px;background:#fff;box-shadow:0 2px 8px rgba(16,185,129,.1)}
 .clil h2{font-size:14px;font-weight:700;color:var(--g);margin-bottom:10px}
@@ -39,7 +40,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 .wcard{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px}
 .wnum{background:var(--p);color:#fff;border-radius:6px;font-size:11px;font-weight:800;padding:3px 7px;white-space:nowrap;margin-top:2px}
 .winfo{flex:1}
-.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:3px}
+.wen{font-size:17px;font-weight:800;color:#1e293b;margin-bottom:2px}
+.wipa{font-size:13px;color:#6366f1;font-style:italic;margin-bottom:3px}
 .wja{font-size:13px;color:#64748b;margin-bottom:5px}
 .wph{font-size:13px;background:var(--hbg);border-radius:6px;padding:4px 10px;color:#78350f;display:inline-block;font-style:italic}
 .footer{text-align:center;font-size:12px;color:#94a3b8;padding-bottom:20px;line-height:1.7}</style>
@@ -49,18 +51,19 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
 <div class="hdr">
   <div class="badge">📘 Unit01 / 08</div>
   <h1>ユメタン０ 音読ストーリー</h1>
-  <div class="sub">単語 #41〜#50 ｜ 2026年5月20日（水）</div>
+  <div class="sub">単語 #41〜#50 ｜ 2026年5月21日（木）</div>
 </div>
 <div class="box">
-  <div class="prog-label"><span>📊 全体進捗</span><span>50 / 800語 (6.25%)</span></div>
+  <div class="level-badge">📊 英検5級レベル ｜ 過去形・接続詞and/then・疑問文</div>
+  <div class="prog-label"><span>📈 全体進捗</span><span>50 / 800語 (6.25%)</span></div>
   <div class="prog-out"><div class="prog-in" style="width:6.25%"></div></div>
 </div>
 <div class="box">
-  <div class="sec-title">✨ 今日の10単語 — 🚀 タイムトラベル</div>
+  <div class="sec-title">✨ 今日の10単語 — 🚀 SF・タイムトラベル</div>
   <div class="chips"><span class="chip">light</span><span class="chip">forest</span><span class="chip">game</span><span class="chip">war</span><span class="chip">left</span><span class="chip">lady</span><span class="chip">gentleman</span><span class="chip">wing</span><span class="chip">line</span><span class="chip">ice</span></div>
 </div>
 <div class="box">
-  <div class="story-title">🚀 Frozen in Time!</div>
+  <div class="story-title">🚀 The Ice Forest</div>
   <div class="player">
     <div class="speed-row">
       <span class="speed-label">速さ：</span>
@@ -74,42 +77,44 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;b
     </div>
   </div>
   <div class="en">
-    <p>The time machine crashed into a snowy <mark>forest</mark>.</p>
-    <p>"This is NOT a <mark>game</mark>!" Kenji shouted.</p>
-    <p>Everything was covered in <mark>ice</mark>. The air burned with cold.</p>
-    <p>A blinding flash of <mark>light</mark> split the dark sky.</p>
-    <p>Long <mark>line</mark>s of enormous creatures crossed the frozen ground below.</p>
-    <p>Then — a huge winged beast flew over. Its <mark>wing</mark>s blocked out the sun.</p>
-    <p>"An ancient <mark>war</mark> happened here," said Mia quietly.</p>
-    <p>"Look at what is <mark>left</mark>. Broken bones. Burned trees."</p>
-    <p>Then they spotted two figures in animal skins.</p>
-    <p>A <mark>lady</mark> and a <mark>gentleman</mark> — but not quite human.</p>
-    <p>"We have to go," Kenji said. "NOW."</p>
-    <p>The time machine beeped once. Then the <mark>ice</mark> cracked beneath their feet.</p>
+    <p>Kenji played a <mark>game</mark> in the <mark>forest</mark>.</p>
+    <p>Then a bright <mark>light</mark> came down.</p>
+    <p>Everything turned to <mark>ice</mark>.</p>
+    <p>Long <mark>line</mark>s of big animals walked by.</p>
+    <p>A <mark>lady</mark> and a <mark>gentleman</mark> came out of the trees.</p>
+    <p>They had big <mark>wing</mark>s on their backs.</p>
+    <p>"There is no <mark>war</mark> here," the <mark>lady</mark> said.</p>
+    <p>"Only peace."</p>
+    <p>Then the <mark>light</mark> came again.</p>
+    <p>Kenji was <mark>left</mark> alone. Was it a dream?</p>
   </div>
-  <div class="ja"><h3>🇯🇵 日本語訳</h3>タイムマシンは雪の森の中に墜落しました。<br>「これはゲームじゃない！」ケンジが叫びました。<br>すべてが氷に覆われ、空気は凍えるほど冷たかった。<br>まばゆい光が暗い空を切り裂きました。<br>眼下の凍った大地を、巨大な生き物たちが長い列をなして渡っていました。<br>すると——翼を持つ巨大な生き物が飛んできました。その翼が太陽を遮りました。<br>「古代の戦争がここであったんだ」とミアが静かに言いました。<br>「残ったものを見て。折れた骨。焼けた木。」<br>そして獣の皮をまとった二つの人影が見えました。<br>女性と男性——でも完全な人間ではありませんでした。<br>「行かないといけない」とケンジは言いました。「今すぐ！」<br>タイムマシンが一度鳴りました。そして足元の氷がバキッと割れました。</div>
+  <div class="ja"><h3>🇯🇵 日本語訳</h3>ケンジは森でゲームをしていました。<br>すると明るい光が降ってきました。<br>全てが氷に変わりました。<br>大きな動物たちが長い列をなして歩いていきました。<br>木々の間から女性と男性が現れました。<br>彼らは背中に大きな翼を持っていました。<br>「ここに戦争はない」と女性が言いました。<br>「平和だけがあるのよ。」<br>するとまた光が来ました。<br>ケンジは一人残されました。夢だったのでしょうか？</div>
 </div>
 <div class="clil">
   <h2>🦣 CLIL豆知識：氷河期の生き物</h2>
-  <p>最後の氷河期が終わったのは約<strong>11,700年前</strong>。その時代にはマンモス・サーベルタイガー・ウーリーライノセラス（毛むくじゃらのサイ）が生きていました。<br><br><span class="clil-en">The last Ice Age ended about 11,700 years ago. Woolly mammoths, saber-toothed cats, and giant flying birds all lived during this time!</span><br><br>シベリアの永久凍土からは今も保存状態の良いマンモスが発見されています。科学者たちはそのDNAを研究し、マンモスを復活させようとしています！</p>
+  <p>最後の氷河期が終わったのは約<strong>11,700年前</strong>。その時代にはマンモス・サーベルタイガーが生きていました。シベリアの永久凍土からは今も保存状態の良いマンモスが発見されています！<br><br><span class="clil-en">The last Ice Age ended about 11,700 years ago. Woolly mammoths were still alive then — and some are still found frozen in Siberia today!</span><br><br>科学者たちはマンモスのDNAを研究し、いつかマンモスを復活させようとしています。夢のような話が現実になるかもしれません！</p>
 </div>
 <div class="box">
   <div class="sec-title">📖 単語まとめカード</div>
-  <div class="wcard"><span class="wnum">#41</span><div class="winfo"><div class="wen">light</div><div class="wja">光 / 明かり / 軽い</div><span class="wph">a flash of light — 光の閃光</span></div></div>
-  <div class="wcard"><span class="wnum">#42</span><div class="winfo"><div class="wen">forest</div><div class="wja">森 / 林</div><span class="wph">a dark forest — 暗い森</span></div></div>
-  <div class="wcard"><span class="wnum">#43</span><div class="winfo"><div class="wen">game</div><div class="wja">ゲーム / 試合</div><span class="wph">play a game — ゲームをする</span></div></div>
-  <div class="wcard"><span class="wnum">#44</span><div class="winfo"><div class="wen">war</div><div class="wja">戦争</div><span class="wph">a long war — 長い戦争</span></div></div>
-  <div class="wcard"><span class="wnum">#45</span><div class="winfo"><div class="wen">left</div><div class="wja">左 / 残った</div><span class="wph">on the left — 左側に</span></div></div>
-  <div class="wcard"><span class="wnum">#46</span><div class="winfo"><div class="wen">lady</div><div class="wja">女性 / 淑女</div><span class="wph">a young lady — 若い女性</span></div></div>
-  <div class="wcard"><span class="wnum">#47</span><div class="winfo"><div class="wen">gentleman</div><div class="wja">紳士 / 男性</div><span class="wph">a kind gentleman — 親切な紳士</span></div></div>
-  <div class="wcard"><span class="wnum">#48</span><div class="winfo"><div class="wen">wing</div><div class="wja">翼 / 羽</div><span class="wph">a large wing — 大きな翼</span></div></div>
-  <div class="wcard"><span class="wnum">#49</span><div class="winfo"><div class="wen">line</div><div class="wja">列 / 線</div><span class="wph">stand in line — 列に並ぶ</span></div></div>
-  <div class="wcard"><span class="wnum">#50</span><div class="winfo"><div class="wen">ice</div><div class="wja">氷</div><span class="wph">thin ice — 薄い氷</span></div></div>
+  <div class="wcard"><span class="wnum">#41</span><div class="winfo"><div class="wen">light</div><div class="wipa">/laɪt/</div><div class="wja">光</div><span class="wph">The light from the sun can be dangerous.</span></div></div>
+  <div class="wcard"><span class="wnum">#42</span><div class="winfo"><div class="wen">forest</div><div class="wipa">/ˈfɔːrɪst/</div><div class="wja">森林</div><span class="wph">I walked through the forest.</span></div></div>
+  <div class="wcard"><span class="wnum">#43</span><div class="winfo"><div class="wen">game</div><div class="wipa">/ɡeɪm/</div><div class="wja">ゲーム</div><span class="wph">play a computer game</span></div></div>
+  <div class="wcard"><span class="wnum">#44</span><div class="winfo"><div class="wen">war</div><div class="wipa">/wɔːr/</div><div class="wja">戦争</div><span class="wph">The war is over.</span></div></div>
+  <div class="wcard"><span class="wnum">#45</span><div class="winfo"><div class="wen">left</div><div class="wipa">/left/</div><div class="wja">左</div><span class="wph">You can see high mountains on the left.</span></div></div>
+  <div class="wcard"><span class="wnum">#46</span><div class="winfo"><div class="wen">lady</div><div class="wipa">/ˈleɪdi/</div><div class="wja">婦人</div><span class="wph">The lady was very kind.</span></div></div>
+  <div class="wcard"><span class="wnum">#47</span><div class="winfo"><div class="wen">gentleman</div><div class="wipa">/ˈdʒentlmən/</div><div class="wja">紳士</div><span class="wph">He behaves like a gentleman.</span></div></div>
+  <div class="wcard"><span class="wnum">#48</span><div class="winfo"><div class="wen">wing</div><div class="wipa">/wɪŋ/</div><div class="wja">翼</div><span class="wph">Birds have wings.</span></div></div>
+  <div class="wcard"><span class="wnum">#49</span><div class="winfo"><div class="wen">line</div><div class="wipa">/laɪn/</div><div class="wja">線</div><span class="wph">draw a line on the ground</span></div></div>
+  <div class="wcard"><span class="wnum">#50</span><div class="winfo"><div class="wen">ice</div><div class="wipa">/aɪs/</div><div class="wja">氷</div><span class="wph">The lake is covered with ice.</span></div></div>
 </div>
-<div class="footer">ユメタン０ Unit01 ｜ 次回は単語 #51〜#60<br>Keep reading every day! 🌟</div>
+<div class="footer">
+  ユメタン０ Unit01 ｜ 次回は単語 #51〜60<br>
+  Keep reading every day! 🌟
 </div>
-<script>const STORY_TEXT_PLAIN = `The time machine crashed into a snowy forest. This is NOT a game! Kenji shouted. Everything was covered in ice. The air burned with cold. A blinding flash of light split the dark sky. Long lines of enormous creatures crossed the frozen ground below. Then — a huge winged beast flew over. Its wings blocked out the sun. An ancient war happened here, said Mia quietly. Look at what is left. Broken bones. Burned trees. Then they spotted two figures in animal skins. A lady and a gentleman — but not quite human. We have to go, Kenji said. NOW. The time machine beeped once. Then the ice cracked beneath their feet.`;
-let speechRate=1.0;function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
+</div>
+<script>const STORY_TEXT_PLAIN = `Kenji played a game in the forest. Then a bright light came down. Everything turned to ice. Long lines of big animals walked by. A lady and a gentleman came out of the trees. They had big wings on their backs. There is no war here, the lady said. Only peace. Then the light came again. Kenji was left alone. Was it a dream?`;
+let speechRate=1.0;
+function setSpeed(r,b){speechRate=r;document.querySelectorAll('.speed-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');}
 function playStory(){if(!('speechSynthesis' in window)){alert('音声未対応');return;}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(STORY_TEXT_PLAIN);u.lang='en-US';u.rate=speechRate;u.pitch=1.0;const v=window.speechSynthesis.getVoices().find(x=>x.lang.startsWith('en'));if(v)u.voice=v;window.speechSynthesis.speak(u);}
 function stopStory(){window.speechSynthesis.cancel();}
 if(window.speechSynthesis){window.speechSynthesis.getVoices();window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices();}</script>
